@@ -101,22 +101,16 @@ const Dashboard = () => {
           description: 'AI-powered thought leadership content generation'
         },
         {
-          name: 'AI-Generated Career Portfolio/Microsite',
-          path: '/dashboard/career-portfolio',
-          icon: Globe,
-          description: 'Create professional portfolio websites with AI'
-        },
-        {
-          name: 'AI Mentor for Brand Growth',
-          path: '/dashboard/ai-mentor',
-          icon: Brain,
-          description: 'Personal AI coach for career and brand development'
-        },
-        {
           name: 'AI Brand Intelligence',
           path: '/dashboard/ai-brand-intelligence',
           icon: Brain,
           description: 'Unified AI coach for brand growth and reputation management'
+        },
+        {
+          name: 'AI-Generated Career Portfolio/Microsite',
+          path: '/dashboard/career-portfolio',
+          icon: Globe,
+          description: 'Create professional portfolio websites with AI'
         },
         {
           name: 'AI Career Event Scout & Networking Assistant',
@@ -170,16 +164,6 @@ const Dashboard = () => {
           path: '/dashboard/work-history-manager',
           icon: FolderOpen,
           description: 'Manage saved resumes, cover letters, and documents'
-        }
-      ]
-    },
-    {
-      category: 'Plan & Manage',
-      items: [
-        {
-          name: 'Calendar & Post Queue',
-          path: '/dashboard/calendar',
-          icon: Calendar,
         }
       ]
     },
@@ -324,11 +308,9 @@ const Dashboard = () => {
               <Route path="/application-tailor" element={<ApplicationTailor />} />
               <Route path="/cover-letter-generator" element={<CoverLetterGenerator />} />
               <Route path="/work-history-manager" element={<ResumeManager />} />
-              <Route path="/calendar" element={<CalendarPostQueue />} />
               <Route path="/analytics" element={<Analytics />} />
               <Route path="/comment-helper" element={<CommentHelper />} />
               <Route path="/team-management" element={<TeamManagement />} />
-              <Route path="/ai-mentor" element={<AIMentor />} />
               <Route path="/ai-brand-intelligence" element={<AIBrandIntelligence />} />
               <Route path="/career-event-scout" element={<CareerEventScout />} />
             </Routes>

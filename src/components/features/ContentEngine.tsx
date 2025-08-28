@@ -261,7 +261,7 @@ What's your experience with AI development tools? Are you seeing similar product
             activeTab === 'calendar' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'
           }`}
         >
-          Content Calendar
+          Calendar & Post Queue
         </button>
         <button
           onClick={() => setActiveTab('analytics')}
@@ -722,16 +722,140 @@ What's your experience with AI development tools? Are you seeing similar product
 
       {/* Calendar Tab */}
       {activeTab === 'calendar' && (
-        <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
-          <h3 className="text-lg font-semibold text-gray-50 mb-6 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-orange-400" />
-            Content Calendar
-          </h3>
-          
-          <div className="text-center py-20">
-            <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h4 className="text-xl font-semibold text-gray-50 mb-2">Content Calendar Coming Soon</h4>
-            <p className="text-gray-400">Visual calendar interface for content planning and scheduling</p>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          {/* Calendar View */}
+          <div className="lg:col-span-3">
+            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-lg font-semibold text-gray-50 flex items-center gap-2">
+                  <Calendar className="w-5 h-5 text-orange-400" />
+                  Calendar & Post Queue
+                </h3>
+                <div className="flex items-center gap-2">
+                  <button className="px-3 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium">Month</button>
+                  <button className="px-3 py-2 bg-gray-700 text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-600">Week</button>
+                  <button className="px-3 py-2 bg-gray-700 text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-600">List</button>
+                </div>
+              </div>
+              
+              {/* Mock Calendar Grid */}
+              <div className="grid grid-cols-7 gap-2 mb-4">
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                  <div key={day} className="text-center text-gray-400 text-sm font-medium py-2">
+                    {day}
+                  </div>
+                ))}
+                
+                {/* Calendar Days */}
+                {Array.from({ length: 35 }, (_, i) => {
+                  const dayNumber = i - 6; // Start from previous month
+                  const isCurrentMonth = dayNumber > 0 && dayNumber <= 31;
+                  const hasContent = [5, 8, 12, 15, 19, 22, 26, 29].includes(dayNumber);
+                  
+                  return (
+                    <div
+                      key={i}
+                      className={`aspect-square border border-gray-700 rounded-lg p-2 text-sm ${
+                        isCurrentMonth ? 'bg-[#1F2937] text-gray-50' : 'bg-gray-800 text-gray-500'
+                      } ${hasContent ? 'border-indigo-500 bg-indigo-500/10' : ''}`}
+                    >
+                      <div className="font-medium">{dayNumber > 0 ? dayNumber : ''}</div>
+                      {hasContent && (
+                        <div className="mt-1">
+                          <div className="w-2 h-2 bg-indigo-400 rounded-full"></div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {/* Scheduled Posts List */}
+              <div className="space-y-3">
+                <h4 className="font-medium text-gray-50">Upcoming Posts</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between p-3 bg-[#1F2937] rounded-lg">
+                    <div>
+                      <h5 className="font-medium text-gray-50 text-sm">AI in Software Development</h5>
+                      <p className="text-gray-400 text-xs">Tomorrow at 2:00 PM</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <button className="p-1 text-gray-400 hover:text-white">
+                        <Edit className="w-4 h-4" />
+                      </button>
+                      <button className="p-1 text-gray-400 hover:text-white">
+                        <Eye className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-3 bg-[#1F2937] rounded-lg">
+                    <div>
+                      <h5 className="font-medium text-gray-50 text-sm">Remote Team Leadership</h5>
+                      <p className="text-gray-400 text-xs">Friday at 10:00 AM</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <button className="p-1 text-gray-400 hover:text-white">
+                        <Edit className="w-4 h-4" />
+                      </button>
+                      <button className="p-1 text-gray-400 hover:text-white">
+                        <Eye className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
+              <h3 className="text-lg font-semibold text-gray-50 mb-4">Optimal Times</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300 text-sm">Monday</span>
+                  <span className="text-indigo-400 text-sm">9:00 AM</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300 text-sm">Wednesday</span>
+                  <span className="text-indigo-400 text-sm">2:00 PM</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300 text-sm">Friday</span>
+                  <span className="text-indigo-400 text-sm">10:30 AM</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
+              <h3 className="text-lg font-semibold text-gray-50 mb-4">Content Gaps</h3>
+              <div className="space-y-3">
+                <div className="p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                  <p className="text-yellow-400 text-sm font-medium">Tomorrow</p>
+                  <p className="text-gray-300 text-xs">No posts scheduled</p>
+                </div>
+                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+                  <p className="text-blue-400 text-sm font-medium">Suggestion</p>
+                  <p className="text-gray-300 text-xs">Schedule a thought leadership post</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
+              <h3 className="text-lg font-semibold text-gray-50 mb-4">Quick Actions</h3>
+              <div className="space-y-2">
+                <button className="w-full text-left p-3 text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-lg transition-colors">
+                  Schedule optimal time
+                </button>
+                <button className="w-full text-left p-3 text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-lg transition-colors">
+                  Create recurring series
+                </button>
+                <button className="w-full text-left p-3 text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-lg transition-colors">
+                  Import from drafts
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
