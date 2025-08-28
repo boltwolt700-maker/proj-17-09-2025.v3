@@ -67,7 +67,12 @@ const Dashboard = () => {
           name: 'Dashboard',
           path: '/dashboard',
           icon: Home,
-        },
+        }
+      ]
+    },
+    {
+      category: 'Career Hub',
+      items: [
         {
           name: 'Smart Resume Studio',
           path: '/dashboard/smart-resume-studio',
