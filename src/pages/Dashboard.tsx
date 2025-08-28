@@ -67,6 +67,48 @@ const Dashboard = () => {
           name: 'Dashboard',
           path: '/dashboard',
           icon: Home,
+        },
+        {
+          name: 'Smart Resume Studio',
+          path: '/dashboard/smart-resume-studio',
+          icon: FileText,
+          description: 'AI-powered resume creation and optimization'
+        },
+        {
+          name: 'Application Tailor',
+          path: '/dashboard/application-tailor',
+          icon: Target,
+          description: 'Tailor resumes for specific job applications'
+        },
+        {
+          name: 'Cover Letter Generator',
+          path: '/dashboard/cover-letter-generator',
+          icon: FileText,
+          description: 'AI-powered personalized cover letters'
+        },
+        {
+          name: 'Job Finder',
+          path: '/dashboard/job-finder',
+          icon: Target,
+          description: 'AI-powered job search and scoring'
+        },
+        {
+          name: 'Job Tracker',
+          path: '/dashboard/job-tracker',
+          icon: FolderOpen,
+          description: 'Kanban board for application pipeline'
+        },
+        {
+          name: 'Interview Prep Kit',
+          path: '/dashboard/interview-prep',
+          icon: Users,
+          description: 'AI-powered interview preparation'
+        },
+        {
+          name: 'Work History Manager',
+          path: '/dashboard/work-history-manager',
+          icon: FolderOpen,
+          description: 'Manage saved resumes, cover letters, and documents'
         }
       ]
     },
@@ -117,53 +159,6 @@ const Dashboard = () => {
           path: '/dashboard/career-event-scout',
           icon: Users,
           description: 'Discover events, track role models, and build meaningful connections'
-        }
-      ]
-    },
-    {
-      category: 'Career Hub',
-      items: [
-        {
-          name: 'Smart Resume Studio',
-          path: '/dashboard/smart-resume-studio',
-          icon: FileText,
-          description: 'AI-powered resume creation and optimization'
-        },
-        {
-          name: 'Application Tailor',
-          path: '/dashboard/application-tailor',
-          icon: Target,
-          description: 'Tailor resumes for specific job applications'
-        },
-        {
-          name: 'Cover Letter Generator',
-          path: '/dashboard/cover-letter-generator',
-          icon: FileText,
-          description: 'AI-powered personalized cover letters'
-        },
-        {
-          name: 'Job Finder',
-          path: '/dashboard/job-finder',
-          icon: Target,
-          description: 'AI-powered job search and scoring'
-        },
-        {
-          name: 'Job Tracker',
-          path: '/dashboard/job-tracker',
-          icon: FolderOpen,
-          description: 'Kanban board for application pipeline'
-        },
-        {
-          name: 'Interview Prep Kit',
-          path: '/dashboard/interview-prep',
-          icon: Users,
-          description: 'AI-powered interview preparation'
-        },
-        {
-          name: 'Work History Manager',
-          path: '/dashboard/work-history-manager',
-          icon: FolderOpen,
-          description: 'Manage saved resumes, cover letters, and documents'
         }
       ]
     },
