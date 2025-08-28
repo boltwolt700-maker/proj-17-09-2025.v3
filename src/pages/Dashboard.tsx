@@ -16,7 +16,8 @@ import {
   X,
   Home,
   Brain,
-  Globe
+  Globe,
+  Shield
 } from 'lucide-react';
 import { signOut } from '../lib/supabase';
 import Logo from '../components/Logo';
