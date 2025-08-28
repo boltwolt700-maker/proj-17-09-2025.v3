@@ -43,7 +43,7 @@ import ContentEngine from '../components/features/ContentEngine';
 import CareerPortfolio from '../components/features/CareerPortfolio';
 import AIMentor from '../components/features/AIMentor';
 import CareerEventScout from '../components/features/CareerEventScout';
-import ReputationMonitor from '../components/features/ReputationMonitor';
+import AIBrandIntelligence from '../components/features/AIBrandIntelligence';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -113,10 +113,10 @@ const Dashboard = () => {
           description: 'Personal AI coach for career and brand development'
         },
         {
-          name: 'Reputation Monitoring & Personal SEO',
-          path: '/dashboard/reputation-monitor',
-          icon: Shield,
-          description: 'Monitor your online presence and optimize your digital brand'
+          name: 'AI Brand Intelligence',
+          path: '/dashboard/ai-brand-intelligence',
+          icon: Brain,
+          description: 'Unified AI coach for brand growth and reputation management'
         },
         {
           name: 'AI Career Event Scout & Networking Assistant',
@@ -329,7 +329,7 @@ const Dashboard = () => {
               <Route path="/comment-helper" element={<CommentHelper />} />
               <Route path="/team-management" element={<TeamManagement />} />
               <Route path="/ai-mentor" element={<AIMentor />} />
-              <Route path="/reputation-monitor" element={<ReputationMonitor />} />
+              <Route path="/ai-brand-intelligence" element={<AIBrandIntelligence />} />
               <Route path="/career-event-scout" element={<CareerEventScout />} />
             </Routes>
           </div>
