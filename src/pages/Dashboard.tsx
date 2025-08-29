@@ -216,47 +216,6 @@ const Dashboard = () => {
       ]
     },
     {
-      category: 'Upskilling',
-      items: [
-        {
-          name: 'Upskilling Dashboard',
-          path: '/dashboard/upskilling-dashboard',
-          icon: GraduationCap,
-          description: 'Personalized learning paths and progress tracking'
-        },
-        {
-          name: 'Skill Radar',
-          path: '/dashboard/skill-radar',
-          icon: Radar,
-          description: 'Discover in-demand skills and market signals'
-        },
-        {
-          name: 'Learning Path',
-          path: '/dashboard/learning-path',
-          icon: BookOpen,
-          description: 'Manage your personalized learning roadmap'
-        },
-        {
-          name: 'Sprints',
-          path: '/dashboard/sprints',
-          icon: Zap,
-          description: 'Accelerated learning sprints for skill acquisition'
-        },
-        {
-          name: 'Certifications',
-          path: '/dashboard/certifications',
-          icon: Award,
-          description: 'Track and plan your professional certifications'
-        },
-        {
-          name: 'Skill Benchmarking',
-          path: '/dashboard/skill-benchmarking',
-          icon: BarChart2,
-          description: 'Compare your skills against market and top performers'
-        }
-      ]
-    },
-    {
       category: 'Grow & Engage',
       items: [
         {
