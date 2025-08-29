@@ -14,7 +14,14 @@ import {
   FolderOpen,
   Menu,
   X,
-  Home,
+  Home, // For Dashboard Home
+  GraduationCap, // For Upskilling category
+  Radar, // For Skill Radar
+  BookOpen, // For Learning Path
+  Zap, // For Sprints
+  Award, // For Certifications
+  BarChart2, // For Skill Benchmarking
+
   Brain,
   Globe,
   Shield
@@ -168,6 +175,47 @@ const Dashboard = () => {
       ]
     },
     {
+      category: 'Upskilling',
+      items: [
+        {
+          name: 'Upskilling Dashboard',
+          path: '/dashboard/upskilling-dashboard',
+          icon: GraduationCap,
+          description: 'Personalized learning paths and progress tracking'
+        },
+        {
+          name: 'Skill Radar',
+          path: '/dashboard/skill-radar',
+          icon: Radar,
+          description: 'Discover in-demand skills and market signals'
+        },
+        {
+          name: 'Learning Path',
+          path: '/dashboard/learning-path',
+          icon: BookOpen,
+          description: 'Manage your personalized learning roadmap'
+        },
+        {
+          name: 'Sprints',
+          path: '/dashboard/sprints',
+          icon: Zap,
+          description: 'Accelerated learning sprints for skill acquisition'
+        },
+        {
+          name: 'Certifications',
+          path: '/dashboard/certifications',
+          icon: Award,
+          description: 'Track and plan your professional certifications'
+        },
+        {
+          name: 'Skill Benchmarking',
+          path: '/dashboard/skill-benchmarking',
+          icon: BarChart2,
+          description: 'Compare your skills against market and top performers'
+        }
+      ]
+    },
+    {
       category: 'Grow & Engage',
       items: [
         {
@@ -306,6 +354,12 @@ const Dashboard = () => {
               <Route path="/interview-prep" element={<InterviewPrepKit />} />
               <Route path="/smart-resume-studio" element={<SmartResumeStudio />} />
               <Route path="/application-tailor" element={<ApplicationTailor />} />
+              <Route path="/upskilling-dashboard" element={<div>Upskilling Dashboard Coming Soon!</div>} />
+              <Route path="/skill-radar" element={<div>Skill Radar Coming Soon!</div>} />
+              <Route path="/learning-path" element={<div>Learning Path Coming Soon!</div>} />
+              <Route path="/sprints" element={<div>Sprints Coming Soon!</div>} />
+              <Route path="/certifications" element={<div>Certifications Coming Soon!</div>} />
+              <Route path="/skill-benchmarking" element={<div>Skill Benchmarking Coming Soon!</div>} />
               <Route path="/cover-letter-generator" element={<CoverLetterGenerator />} />
               <Route path="/work-history-manager" element={<ResumeManager />} />
               <Route path="/analytics" element={<Analytics />} />
