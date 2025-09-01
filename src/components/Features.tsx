@@ -13,7 +13,8 @@ import {
   MessageCircle,
   Globe,
   Award,
-  BarChart3
+  BarChart3,
+  Rocket
 } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
