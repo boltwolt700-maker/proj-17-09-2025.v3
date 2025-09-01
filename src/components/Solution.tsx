@@ -142,4 +142,4 @@ const Solution = () => {
   );
 };
 
-export default Problem;
+export default Solution;
