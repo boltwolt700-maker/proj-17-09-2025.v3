@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, BarChart3, UserCheck, DollarSign } from 'lucide-react';
+import { Star, BarChart3, UserCheck, DollarSign, TrendingUp, Award } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const SocialProof = () => {
@@ -11,9 +11,10 @@ const SocialProof = () => {
       title: "Marketing Director",
       company: "TechFlow",
       image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      quote: "I was stuck in the same role for 3 years. Within 6 weeks of using the platform, I had interviews at 3 companies and landed a 40% salary increase. The resume optimization was like having a secret weapon.",
+      quote: "I was stuck in the same role for 3 years. Within 6 weeks of using Career Clarified, I had interviews at 3 companies and landed a 40% salary increase. The resume optimization was like having a secret weapon.",
       rating: 5,
-      result: "40% salary increase"
+      result: "40% salary increase",
+      category: "Career Advancement"
     },
     {
       name: "Marcus Rodriguez",
@@ -22,7 +23,8 @@ const SocialProof = () => {
       image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
       quote: "My LinkedIn posts went from 50 likes to 2,000+ views consistently. More importantly, I've generated $120K in new business from connections made through my content. This platform changed everything.",
       rating: 5,
-      result: "$120K new business"
+      result: "$120K new business",
+      category: "Authority Building"
     },
     {
       name: "Jennifer Walsh",
@@ -31,7 +33,38 @@ const SocialProof = () => {
       image: "https://images.pexels.com/photos/3206080/pexels-photo-3206080.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
       quote: "Finally broke through the ATS nightmare. Got callbacks from Google, Microsoft, and Amazon using their optimized resume. The best part? I barely had to think about it - the AI did the heavy lifting.",
       rating: 5,
-      result: "3 FAANG interviews"
+      result: "3 FAANG interviews",
+      category: "ATS Optimization"
+    },
+    {
+      name: "David Kim",
+      title: "Product Manager",
+      company: "Stripe",
+      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      quote: "The upskilling features helped me identify exactly which skills were trending in my field. I focused my learning, got certified, and landed a PM role at Stripe within 4 months.",
+      rating: 5,
+      result: "Dream job at Stripe",
+      category: "Skill Development"
+    },
+    {
+      name: "Lisa Thompson",
+      title: "Data Scientist",
+      company: "Netflix",
+      image: "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      quote: "The AI Brand Intelligence feature showed me exactly where my online presence was weak. After following their recommendations, my profile views increased 300% and I started getting recruiter messages weekly.",
+      rating: 5,
+      result: "300% profile view increase",
+      category: "Brand Intelligence"
+    },
+    {
+      name: "Robert Chen",
+      title: "Engineering Manager",
+      company: "Uber",
+      image: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      quote: "The integrated approach is genius. My resume got me past ATS systems, my LinkedIn content built my reputation, and the networking assistant connected me with the right people. Complete career transformation.",
+      rating: 5,
+      result: "Engineering Manager at Uber",
+      category: "Complete Transformation"
     }
   ];
 
@@ -40,27 +73,43 @@ const SocialProof = () => {
       icon: UserCheck,
       number: "87%",
       label: "Get more interview callbacks",
-      color: "text-blue-600"
+      color: "text-blue-600",
+      description: "vs. traditional resume approaches"
     },
     {
-      icon: BarChart3,
+      icon: TrendingUp,
       number: "3x",
       label: "Average LinkedIn engagement increase",
-      color: "text-green-600"
+      color: "text-green-600",
+      description: "within first 30 days"
     },
     {
       icon: UserCheck,
       number: "10,000+",
       label: "Professionals transformed",
-      color: "text-purple-600"
+      color: "text-purple-600",
+      description: "across all industries"
     },
     {
       icon: DollarSign,
       number: "$2.3M+",
       label: "In salary increases secured",
-      color: "text-indigo-600"
+      color: "text-indigo-600",
+      description: "by our users this year"
     }
   ];
+
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case 'Career Advancement': return 'bg-blue-500/20 text-blue-400';
+      case 'Authority Building': return 'bg-green-500/20 text-green-400';
+      case 'ATS Optimization': return 'bg-purple-500/20 text-purple-400';
+      case 'Skill Development': return 'bg-orange-500/20 text-orange-400';
+      case 'Brand Intelligence': return 'bg-pink-500/20 text-pink-400';
+      case 'Complete Transformation': return 'bg-indigo-500/20 text-indigo-400';
+      default: return 'bg-gray-500/20 text-gray-400';
+    }
+  };
 
   return (
     <section id="success-stories" className="py-20 bg-gradient-to-br from-slate-50 to-indigo-50">
@@ -69,6 +118,9 @@ const SocialProof = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
             Real Results From <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Real Professionals</span>
           </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Join thousands of professionals who discovered the secret to getting hired faster AND building unstoppable authority
+          </p>
         </div>
 
         {/* Statistics */}
@@ -81,10 +133,11 @@ const SocialProof = () => {
                 className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-48 flex flex-col items-center justify-center text-center">
-                  <Icon className={`w-8 h-8 ${stat.color} mb-4`} />
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 text-center">
+                  <Icon className={`w-8 h-8 ${stat.color} mb-4 mx-auto`} />
                   <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.number}</div>
-                  <div className="text-slate-600 text-sm font-medium leading-tight px-2">{stat.label}</div>
+                  <div className="text-slate-600 font-medium mb-1">{stat.label}</div>
+                  <div className="text-slate-400 text-xs">{stat.description}</div>
                 </div>
               </div>
             );
@@ -92,17 +145,23 @@ const SocialProof = () => {
         </div>
 
         {/* Testimonials */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 0.2}s` }}
+              className={`group bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
+              {/* Category Badge */}
+              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-4 ${getCategoryColor(testimonial.category)}`}>
+                <Award className="w-3 h-3" />
+                {testimonial.category}
+              </div>
+
               {/* Rating */}
-              <div className="flex items-center gap-1 mb-6">
+              <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
 
@@ -113,7 +172,10 @@ const SocialProof = () => {
 
               {/* Result Badge */}
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-3 mb-6 border border-green-100">
-                <div className="text-green-700 font-semibold text-sm">Result: {testimonial.result}</div>
+                <div className="text-green-700 font-semibold text-sm flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4" />
+                  Result: {testimonial.result}
+                </div>
               </div>
 
               {/* User Info */}
@@ -134,15 +196,17 @@ const SocialProof = () => {
         </div>
 
         {/* Company Logos */}
-        <div className={`mt-16 text-center transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.8s' }}>
-          <p className="text-slate-500 mb-8 font-medium">Trusted by professionals at leading companies</p>
+        <div className={`text-center transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.8s' }}>
+          <p className="text-slate-500 mb-8 font-medium">Trusted by professionals at leading companies worldwide</p>
           <div className="flex items-center justify-center gap-8 flex-wrap">
-            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-semibold text-slate-700">Google</div>
-            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-semibold text-slate-700">Microsoft</div>
-            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-semibold text-slate-700">Amazon</div>
-            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-semibold text-slate-700">Meta</div>
-            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-semibold text-slate-700">Tesla</div>
-            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-semibold text-slate-700">Apple</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Google</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Microsoft</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Amazon</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Meta</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Tesla</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Apple</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Netflix</div>
+            <div className="bg-white px-8 py-4 rounded-lg shadow-sm border border-slate-200 font-bold text-slate-700">Uber</div>
           </div>
         </div>
       </div>

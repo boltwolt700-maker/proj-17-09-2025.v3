@@ -3,9 +3,8 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Problem from '../components/Problem';
 import Solution from '../components/Solution';
-import Benefits from '../components/Benefits';
-import SocialProof from '../components/SocialProof';
 import Features from '../components/Features';
+import SocialProof from '../components/SocialProof';
 import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
 import FinalCTA from '../components/FinalCTA';
@@ -18,9 +17,8 @@ const Home = () => {
       <Hero />
       <Problem />
       <Solution />
-      <Benefits />
-      <SocialProof />
       <Features />
+      <SocialProof />
       <Pricing />
       <FAQ />
       <FinalCTA />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { XCircle, Clock, MessageSquare } from 'lucide-react';
+import { XCircle, Clock, AlertTriangle, TrendingDown } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const Problem = () => {
@@ -12,6 +12,9 @@ const Problem = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
             If You're Qualified But Still Struggling, <span className="text-red-500">You're Not Alone</span>
           </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            75% of qualified professionals are stuck in the same broken system. Here's why traditional approaches fail:
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -22,24 +25,30 @@ const Problem = () => {
                 <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
                   <XCircle className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800">For Job Seekers</h3>
+                <h3 className="text-2xl font-bold text-slate-800">The ATS Black Hole</h3>
               </div>
               
-              <div className="space-y-4 text-slate-600 flex-1 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <p className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0"></span>
-                    Your resume disappears into the "ATS black hole" while less qualified candidates get interviews
-                  </p>
-                  <p className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0"></span>
-                    You spend hours tailoring each application, only to hear nothing back
-                  </p>
-                  <p className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0"></span>
-                    The whole process feels like throwing darts in the dark
-                  </p>
+              <div className="space-y-4 text-slate-600 flex-1">
+                <div className="bg-white/60 rounded-lg p-4 border border-red-200">
+                  <div className="flex items-center gap-3 mb-2">
+                    <TrendingDown className="w-5 h-5 text-red-500" />
+                    <span className="font-semibold text-red-700">75% of resumes never reach human eyes</span>
+                  </div>
+                  <p className="text-sm">ATS systems reject qualified candidates due to formatting issues, missing keywords, or poor optimization</p>
                 </div>
+                
+                <p className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0"></span>
+                  You spend hours tailoring each application, only to hear nothing back
+                </p>
+                <p className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0"></span>
+                  Less qualified candidates get interviews while you're stuck in the system
+                </p>
+                <p className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0"></span>
+                  The whole process feels like throwing darts in the dark
+                </p>
               </div>
             </div>
           </div>
@@ -49,26 +58,32 @@ const Problem = () => {
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-white" />
+                  <AlertTriangle className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800">For Brand Builders</h3>
+                <h3 className="text-2xl font-bold text-slate-800">The Authority Gap</h3>
               </div>
               
-              <div className="space-y-4 text-slate-600 flex-1 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <p className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></span>
-                    You know you should be posting on LinkedIn, but staring at that blank text box gives you instant writer's block
-                  </p>
-                  <p className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></span>
-                    You see others building authority while you struggle to find time for consistent content creation
-                  </p>
-                  <p className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></span>
-                    Your expertise stays hidden while louder voices get the opportunities
-                  </p>
+              <div className="space-y-4 text-slate-600 flex-1">
+                <div className="bg-white/60 rounded-lg p-4 border border-blue-200">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Clock className="w-5 h-5 text-blue-500" />
+                    <span className="font-semibold text-blue-700">Your expertise stays hidden</span>
+                  </div>
+                  <p className="text-sm">While louder voices get the opportunities, your knowledge and skills remain invisible to decision-makers</p>
                 </div>
+                
+                <p className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></span>
+                  You know you should be posting on LinkedIn, but staring at that blank text box gives you instant writer's block
+                </p>
+                <p className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></span>
+                  You see others building authority while you struggle to find time for consistent content creation
+                </p>
+                <p className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></span>
+                  Opportunities go to those who are visible, not necessarily those who are most qualified
+                </p>
               </div>
             </div>
           </div>
@@ -85,6 +100,11 @@ const Problem = () => {
               You're treating these as separate challenges when they're actually <strong>two sides of the same coin</strong>. 
               Landing great roles AND building influence requires an integrated approach that most professionals never discover.
             </p>
+            <div className="mt-6 bg-white/60 rounded-lg p-4 border border-purple-200">
+              <p className="text-purple-700 font-semibold">
+                Career Clarified is the first platform that solves both problems simultaneously.
+              </p>
+            </div>
           </div>
         </div>
       </div>
