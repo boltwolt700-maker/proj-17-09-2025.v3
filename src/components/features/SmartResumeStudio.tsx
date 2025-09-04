@@ -1325,7 +1325,4 @@ SKILLS
   );
 };
 
-// Add theme import
-import { useTheme } from '../../hooks/useTheme';
-
 export default SmartResumeStudio;
