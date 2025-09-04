@@ -6,7 +6,7 @@ import ErrorBoundary from './ErrorBoundary';
 
 const Hero = () => {
   const navigate = useNavigate();
-  const [splineError, setSplineError] = useState(false);
+  const [splineError, setSplineError] = useState(true);
   const [splineLoaded, setSplineLoaded] = useState(false);
   const [SplineComponent, setSplineComponent] = useState<any>(null);
 
