@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTheme } from '../../hooks/useTheme';
 import { 
   FileText, 
   Download,
@@ -37,6 +38,7 @@ interface FormattingSettings {
 }
 
 const SmartResumeStudio = () => {
+  const { theme } = useTheme();
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [activeResumeId, setActiveResumeId] = useState<string | null>(null);
   const [activeResume, setActiveResume] = useState<Resume | null>(null);
