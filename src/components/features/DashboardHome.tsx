@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../../hooks/useTheme';
 import { 
   TrendingUp, 
   Users, 
@@ -14,7 +15,6 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../../hooks/useTheme';
 
 const DashboardHome = () => {
   const navigate = useNavigate();
@@ -166,7 +166,6 @@ const DashboardHome = () => {
           return (
             <div
               key={index}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 hover:border-violet-400/30 hover:bg-slate-800/80"
               className={`card-metallic backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 ${
                 theme === 'light'
                   ? 'bg-white/90 border-gray-200 hover:border-violet-400/30'
