@@ -30,20 +30,28 @@ const Templates = () => {
           {templates.map((template, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className={`w-12 h-12 bg-gradient-to-r ${template.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                {template.icon}
+              {/* Top colored section */}
+              <div className={`bg-gradient-to-r ${template.color} p-4 relative`}>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-white">
+                    {template.icon}
+                  </div>
+                  <div className="text-white/80 text-xs font-medium">TEMPLATE</div>
+                </div>
+                <h3 className="text-lg font-bold text-white group-hover:text-white/90 transition-colors">
+                  {template.name}
+                </h3>
               </div>
               
-              <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors">
-                {template.name}
-              </h3>
-              
-              <p className="text-slate-600 text-sm">
-                Professional template designed for maximum engagement and authority building
-              </p>
+              {/* Bottom white section */}
+              <div className="p-4 bg-white">
+                <p className="text-slate-600 text-sm">
+                  Professional template designed for maximum engagement and authority building
+                </p>
+              </div>
             </div>
           ))}
         </div>

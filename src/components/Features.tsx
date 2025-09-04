@@ -104,22 +104,28 @@ const Features = () => {
 
   const FeatureCard = ({ feature, index, delay }: { feature: any, index: number, delay: string }) => (
     <div
-      className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50 hover:border-indigo-300/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/10 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-indigo-300/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/10 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: delay }}
     >
-      <div className={`w-14 h-14 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-        <div className="text-white">
-          {feature.icon}
+      {/* Top colored section */}
+      <div className={`bg-gradient-to-r ${feature.gradient} p-6 relative`}>
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-white">
+            {feature.icon}
+          </div>
+          <div className="text-white/80 text-xs font-medium">FEATURE</div>
         </div>
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-white/90 transition-colors">
+          {feature.title}
+        </h3>
       </div>
       
-      <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">
-        {feature.title}
-      </h3>
-      
-      <p className="text-slate-600 leading-relaxed">
-        {feature.description}
-      </p>
+      {/* Bottom white section */}
+      <div className="p-6 bg-white">
+        <p className="text-slate-600 leading-relaxed">
+          {feature.description}
+        </p>
+      </div>
     </div>
   );
 

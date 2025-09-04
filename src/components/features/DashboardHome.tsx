@@ -123,17 +123,25 @@ const DashboardHome = () => {
             <button
               key={index}
               onClick={() => navigate(action.path)}
-              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-violet-400/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/25 text-left hover:bg-slate-800/80"
+              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-violet-400/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/25 text-left"
             >
-              <div className={`w-12 h-12 bg-gradient-to-r ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                <Icon className="w-6 h-6 text-white" />
+              {/* Top colored section */}
+              <div className={`bg-gradient-to-r ${action.color} p-6 relative`}>
+                <div className="flex items-center justify-between mb-4">
+                  <Icon className="w-6 h-6 text-white" />
+                  <div className="text-white/80 text-xs font-medium">ACTION</div>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors">
+                  {action.title}
+                </h3>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-violet-300 transition-colors">
-                {action.title}
-              </h3>
-              <p className="text-slate-300 text-sm group-hover:text-slate-200 transition-colors">
-                {action.description}
-              </p>
+              
+              {/* Bottom white section */}
+              <div className="p-6 bg-white">
+                <p className="text-slate-600 text-sm">
+                  {action.description}
+                </p>
+              </div>
             </button>
           );
         })}

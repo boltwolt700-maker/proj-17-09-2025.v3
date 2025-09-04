@@ -91,7 +91,7 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`group relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 border transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:border-indigo-400/50 hover:shadow-indigo-500/20 ${
+              className={`group relative bg-white rounded-2xl overflow-hidden border transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:border-indigo-400/50 hover:shadow-indigo-500/20 ${
                 plan.popular 
                   ? 'border-indigo-400 shadow-lg shadow-indigo-500/20 ring-2 ring-indigo-400/20' 
                   : 'border-slate-200/50'
@@ -111,56 +111,62 @@ const Pricing = () => {
                 </div>
               )}
 
-              {/* Plan Header */}
-              <div className="text-center mb-8">
-                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center ${
-                  plan.popular 
-                    ? 'bg-gradient-to-r from-indigo-500 to-purple-600' 
-                    : plan.name === 'Enterprise'
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-600'
-                    : 'bg-slate-200'
-                }`}>
-                  <div className={plan.popular || plan.name === 'Enterprise' ? 'text-white' : 'text-slate-600'}>
+              {/* Top colored section */}
+              <div className={`p-6 relative ${
+                plan.popular 
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-600' 
+                  : plan.name === 'Enterprise'
+                  ? 'bg-gradient-to-r from-purple-500 to-pink-600'
+                  : 'bg-gradient-to-r from-slate-400 to-slate-500'
+              }`}>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-white">
                     {plan.icon}
                   </div>
+                  <div className="text-white/80 text-xs font-medium">PLAN</div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">{plan.name}</h3>
-                <p className="text-slate-600 mb-4">{plan.description}</p>
-                
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className="text-4xl font-bold text-slate-800">{plan.price}</span>
-                  <span className="text-slate-600">/{plan.period}</span>
-                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
               </div>
-
-              {/* Features */}
-              <div className="space-y-4 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-white" />
-                    </div>
-                    <span className="text-slate-600 text-sm leading-relaxed">{feature}</span>
+                
+              {/* Bottom white section */}
+              <div className="p-6 bg-white">
+                <div className="text-center mb-6">
+                  <p className="text-slate-600 mb-4">{plan.description}</p>
+                  
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className="text-4xl font-bold text-slate-800">{plan.price}</span>
+                    <span className="text-slate-600">/{plan.period}</span>
                   </div>
-                ))}
-              </div>
-
-              {/* CTA Button */}
-              <button className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
-                plan.buttonVariant === 'gradient'
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:shadow-lg hover:shadow-indigo-500/25 transform hover:scale-105'
-                  : 'border border-slate-300 text-slate-700 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50'
-              }`}>
-                {plan.buttonText}
-              </button>
-
-              {/* Value Indicator */}
-              {plan.popular && (
-                <div className="mt-4 text-center">
-                  <span className="text-sm text-indigo-600 font-medium">⚡ Best value for most professionals</span>
                 </div>
-              )}
+
+                {/* Features */}
+                <div className="space-y-4 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-start gap-3">
+                      <div className="w-5 h-5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-slate-600 text-sm leading-relaxed">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <button className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
+                  plan.buttonVariant === 'gradient'
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:shadow-lg hover:shadow-indigo-500/25 transform hover:scale-105'
+                    : 'border border-slate-300 text-slate-700 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50'
+                }`}>
+                  {plan.buttonText}
+                </button>
+
+                {/* Value Indicator */}
+                {plan.popular && (
+                  <div className="mt-4 text-center">
+                    <span className="text-sm text-indigo-600 font-medium">⚡ Best value for most professionals</span>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>

@@ -149,46 +149,48 @@ const SocialProof = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              {/* Category Badge */}
-              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-4 ${getCategoryColor(testimonial.category)}`}>
-                <Award className="w-3 h-3" />
-                {testimonial.category}
-              </div>
-
-              {/* Rating */}
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-slate-600 leading-relaxed mb-6 italic">
-                "{testimonial.quote}"
-              </p>
-
-              {/* Result Badge */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-3 mb-6 border border-green-100">
-                <div className="text-green-700 font-semibold text-sm flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4" />
-                  Result: {testimonial.result}
+              {/* Top colored section */}
+              <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-white fill-current" />
+                    ))}
+                  </div>
+                  <div className="text-white/80 text-xs font-medium">{testimonial.category.toUpperCase()}</div>
                 </div>
               </div>
 
-              {/* User Info */}
-              <div className="flex items-center gap-4">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div className="flex-1">
-                  <h4 className="text-slate-800 font-semibold">{testimonial.name}</h4>
-                  <p className="text-slate-500 text-sm">{testimonial.title}</p>
-                  <p className="text-slate-400 text-xs">{testimonial.company}</p>
+              {/* Bottom white section */}
+              <div className="p-6 bg-white">
+                {/* Quote */}
+                <p className="text-slate-600 leading-relaxed mb-6 italic">
+                  "{testimonial.quote}"
+                </p>
+
+                {/* Result Badge */}
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-3 mb-6 border border-green-100">
+                  <div className="text-green-700 font-semibold text-sm flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4" />
+                    Result: {testimonial.result}
+                  </div>
+                </div>
+
+                {/* User Info */}
+                <div className="flex items-center gap-4">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div className="flex-1">
+                    <h4 className="text-slate-800 font-semibold">{testimonial.name}</h4>
+                    <p className="text-slate-500 text-sm">{testimonial.title}</p>
+                    <p className="text-slate-400 text-xs">{testimonial.company}</p>
+                  </div>
                 </div>
               </div>
             </div>

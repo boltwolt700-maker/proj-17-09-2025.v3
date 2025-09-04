@@ -21,32 +21,39 @@ const Solution = () => {
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {/* Content Creation */}
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
-                <Brain className="w-8 h-8 text-white" />
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
+              {/* Top colored section */}
+              <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-6 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <Brain className="w-8 h-8 text-white" />
+                  <div className="text-white/80 text-xs font-medium">PILLAR</div>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Content Creation</h3>
               </div>
               
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Content Creation</h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                Generate authentic LinkedIn content in minutes, not hours. Build authority without the burnout.
-              </p>
+              {/* Bottom white section */}
+              <div className="p-6 bg-white">
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Generate authentic LinkedIn content in minutes, not hours. Build authority without the burnout.
+                </p>
 
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">AI Post Generator</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Professional Carousel Maker</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Content Repurposing Engine</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Thought Leadership Engine</span>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">AI Post Generator</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Professional Carousel Maker</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Content Repurposing Engine</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Thought Leadership Engine</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -54,32 +61,39 @@ const Solution = () => {
 
           {/* Career Hub */}
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.4s' }}>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-white" />
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
+              {/* Top colored section */}
+              <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-6 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <Shield className="w-8 h-8 text-white" />
+                  <div className="text-white/80 text-xs font-medium">PILLAR</div>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Career Hub</h3>
               </div>
               
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Career Hub</h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                Beat ATS systems and land interviews with AI-optimized resumes and strategic job applications.
-              </p>
+              {/* Bottom white section */}
+              <div className="p-6 bg-white">
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Beat ATS systems and land interviews with AI-optimized resumes and strategic job applications.
+                </p>
 
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Smart Resume Studio</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Application Tailor</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Job Finder & Tracker</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Interview Prep Kit</span>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Smart Resume Studio</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Application Tailor</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Job Finder & Tracker</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Interview Prep Kit</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -87,32 +101,39 @@ const Solution = () => {
 
           {/* Upskilling */}
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '0.6s' }}>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-white" />
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
+              {/* Top colored section */}
+              <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-6 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <Zap className="w-8 h-8 text-white" />
+                  <div className="text-white/80 text-xs font-medium">PILLAR</div>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Upskilling</h3>
               </div>
               
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Upskilling</h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                Stay ahead of market demands with AI-guided skill development and strategic learning paths.
-              </p>
+              {/* Bottom white section */}
+              <div className="p-6 bg-white">
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Stay ahead of market demands with AI-guided skill development and strategic learning paths.
+                </p>
 
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Skill Radar & Market Intelligence</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Personalized Learning Paths</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Hands-on Learning Sprints</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-slate-600 text-sm">Certification Planning</span>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Skill Radar & Market Intelligence</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Personalized Learning Paths</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Hands-on Learning Sprints</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-slate-600 text-sm">Certification Planning</span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -65,28 +65,34 @@ const Benefits = () => {
             return (
               <div
                 key={index}
-                className={`group bg-gradient-to-br ${benefit.bgGradient} rounded-2xl p-8 border ${benefit.borderColor} hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 0.2}s` }}
               >
-                <div className={`w-16 h-16 bg-gradient-to-r ${benefit.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8 text-white" />
+                {/* Top colored section */}
+                <div className={`bg-gradient-to-r ${benefit.gradient} p-6 relative`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <Icon className="w-8 h-8 text-white" />
+                    <div className="text-white/80 text-xs font-medium">BENEFIT</div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-white/90 transition-colors">
+                    {benefit.title}
+                  </h3>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-indigo-600 transition-colors">
-                  {benefit.title}
-                </h3>
-                
-                <p className="text-slate-600 leading-relaxed mb-6">
-                  {benefit.description}
-                </p>
+                {/* Bottom white section */}
+                <div className="p-6 bg-white">
+                  <p className="text-slate-600 leading-relaxed mb-6">
+                    {benefit.description}
+                  </p>
 
-                <div className="space-y-3">
-                  {benefit.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-slate-600 text-sm">{feature}</span>
-                    </div>
-                  ))}
+                  <div className="space-y-3">
+                    {benefit.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-slate-600 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             );
