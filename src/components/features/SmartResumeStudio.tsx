@@ -467,28 +467,44 @@ SKILLS
   };
 
   return (
-    <div className="flex h-screen bg-slate-950">
+    <div className={`flex h-screen ${theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'}`}>
       {/* Center Panel - Controls */}
-      <div className="w-80 bg-slate-900 border-r border-slate-800 flex-shrink-0 border-l border-slate-800">
+      <div className={`w-80 border-r flex-shrink-0 border-l ${
+        theme === 'light' 
+          ? 'bg-white border-gray-200' 
+          : 'bg-slate-900 border-slate-800'
+      }`}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="p-6 border-b border-slate-800">
+          <div className={`p-6 border-b ${
+            theme === 'light' ? 'border-gray-200' : 'border-slate-800'
+          }`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
                 <FileText className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-white">Smart Resume Studio</h2>
-                <p className="text-xs text-slate-400">AI-Powered Resume Management</p>
+                <h2 className={`text-lg font-semibold ${
+                  theme === 'light' ? 'text-gray-900' : 'text-white'
+                }`}>Smart Resume Studio</h2>
+                <p className={`text-xs ${
+                  theme === 'light' ? 'text-gray-500' : 'text-slate-400'
+                }`}>AI-Powered Resume Management</p>
               </div>
             </div>
 
             {/* Tab Navigation */}
-            <div className="grid grid-cols-2 gap-1 bg-slate-800 rounded-lg p-1">
+            <div className={`grid grid-cols-2 gap-1 rounded-lg p-1 ${
+              theme === 'light' ? 'bg-gray-100' : 'bg-slate-800'
+            }`}>
               <button
                 onClick={() => setActiveTab('design')}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeTab === 'design' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
+                  activeTab === 'design' 
+                    ? 'bg-indigo-600 text-white' 
+                    : theme === 'light'
+                      ? 'text-gray-600 hover:text-gray-900'
+                      : 'text-slate-300 hover:text-white'
                 }`}
               >
                 Design
@@ -496,17 +512,27 @@ SKILLS
               <button
                 onClick={() => setActiveTab('formatting')}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeTab === 'formatting' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
+                  activeTab === 'formatting' 
+                    ? 'bg-indigo-600 text-white' 
+                    : theme === 'light'
+                      ? 'text-gray-600 hover:text-gray-900'
+                      : 'text-slate-300 hover:text-white'
                 }`}
               >
                 Formatting
               </button>
             </div>
-            <div className="grid grid-cols-2 gap-1 bg-slate-800 rounded-lg p-1 mt-2">
+            <div className={`grid grid-cols-2 gap-1 rounded-lg p-1 mt-2 ${
+              theme === 'light' ? 'bg-gray-100' : 'bg-slate-800'
+            }`}>
               <button
                 onClick={() => setActiveTab('sections')}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeTab === 'sections' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
+                  activeTab === 'sections' 
+                    ? 'bg-indigo-600 text-white' 
+                    : theme === 'light'
+                      ? 'text-gray-600 hover:text-gray-900'
+                      : 'text-slate-300 hover:text-white'
                 }`}
               >
                 Resume Sections
@@ -514,7 +540,11 @@ SKILLS
               <button
                 onClick={() => setActiveTab('ai')}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeTab === 'ai' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
+                  activeTab === 'ai' 
+                    ? 'bg-indigo-600 text-white' 
+                    : theme === 'light'
+                      ? 'text-gray-600 hover:text-gray-900'
+                      : 'text-slate-300 hover:text-white'
                 }`}
               >
                 AI Copilot
@@ -523,12 +553,16 @@ SKILLS
           </div>
 
           {/* Tab Content */}
-          <div className="flex-1 overflow-y-auto p-4">
+          <div className={`flex-1 overflow-y-auto p-4 ${
+            theme === 'light' ? 'bg-white' : 'bg-slate-900'
+          }`}>
             {activeTab === 'design' && (
               <div className="space-y-6">
                 {/* Colors */}
                 <div>
-                  <h4 className="text-sm font-semibold text-white mb-3">Colors</h4>
+                  <h4 className={`text-sm font-semibold mb-3 ${
+                    theme === 'light' ? 'text-gray-900' : 'text-white'
+                  }`}>Colors</h4>
                   <div className="grid grid-cols-4 gap-2">
                     {colorPalettes.map((palette) => (
                       <button
@@ -536,8 +570,8 @@ SKILLS
                         onClick={() => setSelectedColors(palette)}
                         className={`w-12 h-12 rounded-lg border-2 transition-all ${
                           selectedColors.primary === palette.primary
-                            ? 'border-white scale-110'
-                            : 'border-slate-600 hover:border-slate-500'
+                            ? theme === 'light' ? 'border-gray-800 scale-110' : 'border-white scale-110'
+                            : theme === 'light' ? 'border-gray-300 hover:border-gray-400' : 'border-slate-600 hover:border-slate-500'
                         }`}
                         style={{ backgroundColor: palette.primary }}
                         title={palette.name}
@@ -548,14 +582,20 @@ SKILLS
 
                 {/* Templates */}
                 <div>
-                  <h4 className="text-sm font-semibold text-white mb-3">Templates</h4>
+                  <h4 className={`text-sm font-semibold mb-3 ${
+                    theme === 'light' ? 'text-gray-900' : 'text-white'
+                  }`}>Templates</h4>
                   
                   {/* Template Categories */}
                   <div className="flex flex-wrap gap-1 mb-4">
                     <button
                       onClick={() => setTemplateCategory('all')}
                       className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                        templateCategory === 'all' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
+                        templateCategory === 'all' 
+                          ? 'bg-indigo-600 text-white' 
+                          : theme === 'light'
+                            ? 'bg-gray-200 text-gray-600 hover:text-gray-900'
+                            : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
                       All
@@ -563,7 +603,11 @@ SKILLS
                     <button
                       onClick={() => setTemplateCategory('classic')}
                       className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                        templateCategory === 'classic' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
+                        templateCategory === 'classic' 
+                          ? 'bg-indigo-600 text-white' 
+                          : theme === 'light'
+                            ? 'bg-gray-200 text-gray-600 hover:text-gray-900'
+                            : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
                       Classic
@@ -571,7 +615,11 @@ SKILLS
                     <button
                       onClick={() => setTemplateCategory('photo')}
                       className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                        templateCategory === 'photo' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
+                        templateCategory === 'photo' 
+                          ? 'bg-indigo-600 text-white' 
+                          : theme === 'light'
+                            ? 'bg-gray-200 text-gray-600 hover:text-gray-900'
+                            : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
                       Photo
@@ -579,7 +627,11 @@ SKILLS
                     <button
                       onClick={() => setTemplateCategory('modern')}
                       className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                        templateCategory === 'modern' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
+                        templateCategory === 'modern' 
+                          ? 'bg-indigo-600 text-white' 
+                          : theme === 'light'
+                            ? 'bg-gray-200 text-gray-600 hover:text-gray-900'
+                            : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
                       Modern
@@ -595,12 +647,18 @@ SKILLS
                         className={`p-2 rounded-lg border transition-all ${
                           selectedTemplateId === template.id
                             ? 'border-indigo-500 bg-indigo-500/10'
-                            : 'border-slate-600 hover:border-slate-500'
+                            : theme === 'light'
+                              ? 'border-gray-300 hover:border-gray-400'
+                              : 'border-slate-600 hover:border-slate-500'
                         }`}
                       >
                         <div className={`w-full h-20 rounded mb-2 ${template.preview}`}></div>
-                        <h5 className="text-xs font-medium text-white">{template.name}</h5>
-                        <p className="text-xs text-slate-400 mt-1">{template.description}</p>
+                        <h5 className={`text-xs font-medium ${
+                          theme === 'light' ? 'text-gray-900' : 'text-white'
+                        }`}>{template.name}</h5>
+                        <p className={`text-xs mt-1 ${
+                          theme === 'light' ? 'text-gray-500' : 'text-slate-400'
+                        }`}>{template.description}</p>
                       </button>
                     ))}
                   </div>
@@ -612,15 +670,23 @@ SKILLS
               <div className="space-y-6">
                 {/* Font Formatting */}
                 <div>
-                  <h4 className="text-sm font-semibold text-white mb-3">Font Formatting</h4>
+                  <h4 className={`text-sm font-semibold mb-3 ${
+                    theme === 'light' ? 'text-gray-900' : 'text-white'
+                  }`}>Font Formatting</h4>
                   
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">Font Style</label>
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>Font Style</label>
                       <select
                         value={formattingSettings.fontStyle}
                         onChange={(e) => updateFormatting('fontStyle', e.target.value)}
-                        className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-sm focus:border-indigo-500 focus:outline-none"
+                        className={`w-full px-3 py-2 border rounded-lg text-sm focus:border-indigo-500 focus:outline-none ${
+                          theme === 'light'
+                            ? 'bg-white border-gray-300 text-gray-900'
+                            : 'bg-slate-700 border-slate-600 text-white'
+                        }`}
                       >
                         {fontStyles.map((font) => (
                           <option key={font} value={font}>{font}</option>
@@ -629,7 +695,9 @@ SKILLS
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>
                         Font Size: {formattingSettings.fontSize}pt
                       </label>
                       <input
@@ -638,12 +706,16 @@ SKILLS
                         max="16"
                         value={formattingSettings.fontSize}
                         onChange={(e) => updateFormatting('fontSize', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>
                         Heading Size: {formattingSettings.headingSize}pt
                       </label>
                       <input
@@ -652,7 +724,9 @@ SKILLS
                         max="20"
                         value={formattingSettings.headingSize}
                         onChange={(e) => updateFormatting('headingSize', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
                   </div>
@@ -660,35 +734,47 @@ SKILLS
 
                 {/* Document Formatting */}
                 <div>
-                  <h4 className="text-sm font-semibold text-white mb-3">Document Formatting</h4>
+                  <h4 className={`text-sm font-semibold mb-3 ${
+                    theme === 'light' ? 'text-gray-900' : 'text-white'
+                  }`}>Document Formatting</h4>
                   
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">Section Spacing</label>
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>Section Spacing</label>
                       <input
                         type="range"
                         min="8"
                         max="32"
                         value={formattingSettings.sectionSpacing}
                         onChange={(e) => updateFormatting('sectionSpacing', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">Paragraph Spacing</label>
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>Paragraph Spacing</label>
                       <input
                         type="range"
                         min="4"
                         max="16"
                         value={formattingSettings.paragraphSpacing}
                         onChange={(e) => updateFormatting('paragraphSpacing', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">Line Spacing</label>
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>Line Spacing</label>
                       <input
                         type="range"
                         min="1"
@@ -696,43 +782,57 @@ SKILLS
                         step="0.1"
                         value={formattingSettings.lineSpacing}
                         onChange={(e) => updateFormatting('lineSpacing', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">Top & Bottom Margin</label>
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>Top & Bottom Margin</label>
                       <input
                         type="range"
                         min="10"
                         max="40"
                         value={formattingSettings.topBottomMargin}
                         onChange={(e) => updateFormatting('topBottomMargin', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">Side Margins</label>
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>Side Margins</label>
                       <input
                         type="range"
                         min="10"
                         max="40"
                         value={formattingSettings.sideMargins}
                         onChange={(e) => updateFormatting('sideMargins', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-2">Paragraph Indent</label>
+                      <label className={`block text-xs font-medium mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                      }`}>Paragraph Indent</label>
                       <input
                         type="range"
                         min="0"
                         max="20"
                         value={formattingSettings.paragraphIndent}
                         onChange={(e) => updateFormatting('paragraphIndent', Number(e.target.value))}
-                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider"
+                        className={`w-full h-2 rounded-lg appearance-none cursor-pointer slider ${
+                          theme === 'light' ? 'bg-gray-300' : 'bg-slate-700'
+                        }`}
                       />
                     </div>
                   </div>
@@ -742,7 +842,9 @@ SKILLS
 
             {activeTab === 'sections' && (
               <div className="space-y-4">
-                <h4 className="text-sm font-semibold text-white mb-3">Resume Sections</h4>
+                <h4 className={`text-sm font-semibold mb-3 ${
+                  theme === 'light' ? 'text-gray-900' : 'text-white'
+                }`}>Resume Sections</h4>
                 
                 <div className="space-y-2">
                   {availableSections.map((section) => {
@@ -751,10 +853,20 @@ SKILLS
                       <div
                         key={section}
                         className={`flex items-center justify-between p-3 rounded-lg border transition-colors ${
-                          isActive ? 'border-green-500 bg-green-500/10' : 'border-slate-600 bg-slate-700/30'
+                          isActive 
+                            ? 'border-green-500 bg-green-500/10' 
+                            : theme === 'light'
+                              ? 'border-gray-300 bg-gray-50'
+                              : 'border-slate-600 bg-slate-700/30'
                         }`}
                       >
-                        <span className={`text-sm ${isActive ? 'text-green-400' : 'text-slate-300'}`}>
+                        <span className={`text-sm ${
+                          isActive 
+                            ? 'text-green-400' 
+                            : theme === 'light' 
+                              ? 'text-gray-700' 
+                              : 'text-slate-300'
+                        }`}>
                           {section}
                         </span>
                         {isActive ? (
@@ -792,7 +904,9 @@ SKILLS
           </div>
 
           {/* Action Buttons */}
-          <div className="p-4 border-t border-slate-800 space-y-2">
+          <div className={`p-4 border-t space-y-2 ${
+            theme === 'light' ? 'border-gray-200 bg-white' : 'border-slate-800 bg-slate-900'
+          }`}>
             <button 
               onClick={() => setShowCreateModal(true)}
               className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
@@ -802,7 +916,11 @@ SKILLS
             </button>
             <button 
               onClick={handleImportResume}
-              className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-slate-700 text-slate-300 rounded-lg hover:border-slate-600 hover:text-white transition-colors"
+              className={`w-full flex items-center justify-center gap-2 py-2 px-4 border rounded-lg transition-colors ${
+                theme === 'light'
+                  ? 'border-gray-300 text-gray-700 hover:border-gray-400 hover:text-gray-900'
+                  : 'border-slate-700 text-slate-300 hover:border-slate-600 hover:text-white'
+              }`}
             >
               <FileText className="w-4 h-4" />
               Import Resume
@@ -812,12 +930,20 @@ SKILLS
       </div>
 
       {/* Right Panel - Expanded Resume Preview */}
-      <div className="flex-1 bg-slate-900 flex flex-col">
+      <div className={`flex-1 flex flex-col ${
+        theme === 'light' ? 'bg-gray-50' : 'bg-slate-900'
+      }`}>
         {/* Header */}
-        <div className="bg-slate-800 border-b border-slate-700 p-4">
+        <div className={`border-b p-4 ${
+          theme === 'light' 
+            ? 'bg-white border-gray-200' 
+            : 'bg-slate-800 border-slate-700'
+        }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className={`text-lg font-semibold ${
+                theme === 'light' ? 'text-gray-900' : 'text-white'
+              }`}>
                 {activeResume?.title || 'Select a Resume'}
               </h3>
               {activeResume && (
@@ -882,25 +1008,41 @@ SKILLS
       {/* Create New Resume Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-slate-800 rounded-lg p-6 w-96">
-            <h3 className="text-lg font-semibold text-white mb-4">Create New Resume</h3>
+          <div className={`rounded-lg p-6 w-96 ${
+            theme === 'light' ? 'bg-white' : 'bg-slate-800'
+          }`}>
+            <h3 className={`text-lg font-semibold mb-4 ${
+              theme === 'light' ? 'text-gray-900' : 'text-white'
+            }`}>Create New Resume</h3>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Resume Title</label>
+                <label className={`block text-sm font-medium mb-2 ${
+                  theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                }`}>Resume Title</label>
                 <input
                   type="text"
                   value={newResumeTitle}
                   onChange={(e) => setNewResumeTitle(e.target.value)}
                   placeholder="e.g., Software Engineer - Google"
-                  className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+                  className={`w-full px-3 py-2 border rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none ${
+                    theme === 'light'
+                      ? 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                      : 'bg-slate-700 border-slate-600 text-white placeholder-slate-400'
+                  }`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Resume Type</label>
+                <label className={`block text-sm font-medium mb-2 ${
+                  theme === 'light' ? 'text-gray-700' : 'text-slate-300'
+                }`}>Resume Type</label>
                 <div className="space-y-2">
-                  <label className="flex items-center gap-3 p-3 border border-slate-600 rounded-lg cursor-pointer hover:border-slate-500">
+                  <label className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-colors ${
+                    theme === 'light'
+                      ? 'border-gray-300 hover:border-gray-400'
+                      : 'border-slate-600 hover:border-slate-500'
+                  }`}>
                     <input
                       type="radio"
                       name="resumeType"
@@ -910,12 +1052,20 @@ SKILLS
                       className="text-blue-500"
                     />
                     <div>
-                      <div className="text-sm font-medium text-white">Campaign Resume</div>
-                      <div className="text-xs text-slate-400">Job-specific tailored resume</div>
+                      <div className={`text-sm font-medium ${
+                        theme === 'light' ? 'text-gray-900' : 'text-white'
+                      }`}>Campaign Resume</div>
+                      <div className={`text-xs ${
+                        theme === 'light' ? 'text-gray-500' : 'text-slate-400'
+                      }`}>Job-specific tailored resume</div>
                     </div>
                   </label>
                   
-                  <label className="flex items-center gap-3 p-3 border border-slate-600 rounded-lg cursor-pointer hover:border-slate-500">
+                  <label className={`flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-colors ${
+                    theme === 'light'
+                      ? 'border-gray-300 hover:border-gray-400'
+                      : 'border-slate-600 hover:border-slate-500'
+                  }`}>
                     <input
                       type="radio"
                       name="resumeType"
@@ -925,8 +1075,12 @@ SKILLS
                       className="text-blue-500"
                     />
                     <div>
-                      <div className="text-sm font-medium text-white">Master Resume</div>
-                      <div className="text-xs text-slate-400">Foundational resume template</div>
+                      <div className={`text-sm font-medium ${
+                        theme === 'light' ? 'text-gray-900' : 'text-white'
+                      }`}>Master Resume</div>
+                      <div className={`text-xs ${
+                        theme === 'light' ? 'text-gray-500' : 'text-slate-400'
+                      }`}>Foundational resume template</div>
                     </div>
                   </label>
                 </div>
@@ -936,7 +1090,11 @@ SKILLS
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setShowCreateModal(false)}
-                className="flex-1 px-4 py-2 border border-slate-600 text-slate-300 rounded-lg hover:border-slate-500 transition-colors"
+                className={`flex-1 px-4 py-2 border rounded-lg transition-colors ${
+                  theme === 'light'
+                    ? 'border-gray-300 text-gray-700 hover:border-gray-400'
+                    : 'border-slate-600 text-slate-300 hover:border-slate-500'
+                }`}
               >
                 Cancel
               </button>
@@ -955,19 +1113,29 @@ SKILLS
       {/* Import Resume Modal */}
       {showImportModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-slate-800 rounded-lg p-6 w-96">
+          <div className={`rounded-lg p-6 w-96 ${
+            theme === 'light' ? 'bg-white' : 'bg-slate-800'
+          }`}>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-white">Import Resume</h3>
+              <h3 className={`text-lg font-semibold ${
+                theme === 'light' ? 'text-gray-900' : 'text-white'
+              }`}>Import Resume</h3>
               <button
                 onClick={() => setShowImportModal(false)}
-                className="text-slate-400 hover:text-white transition-colors"
+                className={`transition-colors ${
+                  theme === 'light' 
+                    ? 'text-gray-400 hover:text-gray-600' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
             
             <div className="space-y-4">
-              <div className="border-2 border-dashed border-slate-600 rounded-lg p-6 text-center">
+              <div className={`border-2 border-dashed rounded-lg p-6 text-center ${
+                theme === 'light' ? 'border-gray-300' : 'border-slate-600'
+              }`}>
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -979,9 +1147,13 @@ SKILLS
                 <div className="flex flex-col items-center gap-3">
                   {getStatusIcon()}
                   <div>
-                    <p className="text-white font-medium">{getStatusText()}</p>
+                    <p className={`font-medium ${
+                      theme === 'light' ? 'text-gray-900' : 'text-white'
+                    }`}>{getStatusText()}</p>
                     {importFile && (
-                      <p className="text-slate-400 text-sm mt-1">{importFile.name}</p>
+                      <p className={`text-sm mt-1 ${
+                        theme === 'light' ? 'text-gray-500' : 'text-slate-400'
+                      }`}>{importFile.name}</p>
                     )}
                   </div>
                   
@@ -1003,17 +1175,27 @@ SKILLS
               )}
 
               {importFile && (
-                <div className="bg-slate-700 rounded-lg p-3">
+                <div className={`rounded-lg p-3 ${
+                  theme === 'light' ? 'bg-gray-100' : 'bg-slate-700'
+                }`}>
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-white text-sm font-medium">{importFile.name}</p>
-                      <p className="text-slate-400 text-xs">
+                      <p className={`text-sm font-medium ${
+                        theme === 'light' ? 'text-gray-900' : 'text-white'
+                      }`}>{importFile.name}</p>
+                      <p className={`text-xs ${
+                        theme === 'light' ? 'text-gray-500' : 'text-slate-400'
+                      }`}>
                         {(importFile.size / 1024 / 1024).toFixed(2)} MB
                       </p>
                     </div>
                     <button
                       onClick={() => setImportFile(null)}
-                      className="text-slate-400 hover:text-white transition-colors"
+                      className={`transition-colors ${
+                        theme === 'light' 
+                          ? 'text-gray-400 hover:text-gray-600' 
+                          : 'text-slate-400 hover:text-white'
+                      }`}
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -1021,22 +1203,34 @@ SKILLS
                 </div>
               )}
 
-              <div className="bg-slate-700 rounded-lg p-3">
-                <h4 className="text-sm font-medium text-white mb-2">Supported Formats</h4>
-                <div className="grid grid-cols-2 gap-2 text-xs text-slate-400">
+              <div className={`rounded-lg p-3 ${
+                theme === 'light' ? 'bg-gray-100' : 'bg-slate-700'
+              }`}>
+                <h4 className={`text-sm font-medium mb-2 ${
+                  theme === 'light' ? 'text-gray-900' : 'text-white'
+                }`}>Supported Formats</h4>
+                <div className={`grid grid-cols-2 gap-2 text-xs ${
+                  theme === 'light' ? 'text-gray-600' : 'text-slate-400'
+                }`}>
                   <div>• PDF (.pdf)</div>
                   <div>• Word (.docx)</div>
                   <div>• Word (.doc)</div>
                   <div>• Text (.txt)</div>
                 </div>
-                <p className="text-xs text-slate-500 mt-2">Maximum file size: 10MB</p>
+                <p className={`text-xs mt-2 ${
+                  theme === 'light' ? 'text-gray-500' : 'text-slate-500'
+                }`}>Maximum file size: 10MB</p>
               </div>
             </div>
 
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setShowImportModal(false)}
-                className="flex-1 px-4 py-2 border border-slate-600 text-slate-300 rounded-lg hover:border-slate-500 transition-colors"
+                className={`flex-1 px-4 py-2 border rounded-lg transition-colors ${
+                  theme === 'light'
+                    ? 'border-gray-300 text-gray-700 hover:border-gray-400'
+                    : 'border-slate-600 text-slate-300 hover:border-slate-500'
+                }`}
               >
                 Cancel
               </button>
@@ -1057,19 +1251,27 @@ SKILLS
       {/* Export Modal */}
       {showExportModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-slate-800 rounded-lg p-6 w-96">
+          <div className={`rounded-lg p-6 w-96 ${
+            theme === 'light' ? 'bg-white' : 'bg-slate-800'
+          }`}>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-white">Export Resume</h3>
+              <h3 className={`text-lg font-semibold ${
+                theme === 'light' ? 'text-gray-900' : 'text-white'
+              }`}>Export Resume</h3>
               <button
                 onClick={() => setShowExportModal(false)}
-                className="text-slate-400 hover:text-white transition-colors"
+                className={`transition-colors ${
+                  theme === 'light' 
+                    ? 'text-gray-400 hover:text-gray-600' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
             
             <div className="space-y-4">
-              <p className="text-slate-300">Choose your preferred export format:</p>
+              <p className={theme === 'light' ? 'text-gray-700' : 'text-slate-300'}>Choose your preferred export format:</p>
               
               <div className="space-y-3">
                 <button
@@ -1105,7 +1307,11 @@ SKILLS
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setShowExportModal(false)}
-                className="flex-1 px-4 py-2 border border-slate-600 text-slate-300 rounded-lg hover:border-slate-500 transition-colors"
+                className={`flex-1 px-4 py-2 border rounded-lg transition-colors ${
+                  theme === 'light'
+                    ? 'border-gray-300 text-gray-700 hover:border-gray-400'
+                    : 'border-slate-600 text-slate-300 hover:border-slate-500'
+                }`}
               >
                 Cancel
               </button>
@@ -1116,5 +1322,8 @@ SKILLS
     </div>
   );
 };
+
+// Add theme import
+import { useTheme } from '../../hooks/useTheme';
 
 export default SmartResumeStudio;
