@@ -1,13 +1,28 @@
 import React from 'react';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { ArrowRight, Play, Users, CheckCircle, Star, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Spline from '@splinetool/react-spline';
 
 const Hero = () => {
   const navigate = useNavigate();
   const [splineError, setSplineError] = useState(false);
   const [splineLoaded, setSplineLoaded] = useState(false);
+  const [SplineComponent, setSplineComponent] = useState<any>(null);
+
+  useEffect(() => {
+    // Dynamically import Spline to handle loading errors gracefully
+    const loadSpline = async () => {
+      try {
+        const { default: Spline } = await import('@splinetool/react-spline');
+        setSplineComponent(() => Spline);
+      } catch (error) {
+        console.warn('Failed to load Spline component:', error);
+        setSplineError(true);
+      }
+    };
+
+    loadSpline();
+  }, []);
 
   const onSplineLoad = useCallback(() => {
     setSplineLoaded(true);
@@ -21,9 +36,9 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 pb-20 overflow-hidden">
       {/* Spline 3D Background */}
-      {!splineError && (
+      {!splineError && SplineComponent && (
         <div className="absolute inset-0 z-0">
-          <Spline
+          <SplineComponent
             scene="https://my.spline.design/aiassistanthoverandclickinteraction-SpTH6FiO0zIigjJdHqcNf8ZR/"
             onLoad={onSplineLoad}
             onError={onSplineError}
@@ -37,7 +52,7 @@ const Hero = () => {
       )}
 
       {/* Fallback Background (if Spline fails to load) */}
-      {splineError && (
+      {(splineError || !SplineComponent) && (
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)]"></div>
           <div className="absolute top-0 left-0 w-full h-full">
