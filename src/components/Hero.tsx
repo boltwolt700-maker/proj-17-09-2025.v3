@@ -34,22 +34,28 @@ const Hero = () => {
     setSplineError(true);
   }, []);
 
+  const handleSplineError = useCallback(() => {
+    setSplineError(true);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 pb-20 overflow-hidden">
       {/* Spline 3D Background */}
       {!splineError && SplineComponent && (
-        <ErrorBoundary onCatch={onSplineError}>
+        <ErrorBoundary onCatch={handleSplineError}>
           <div className="absolute inset-0 z-0">
-            <SplineComponent
-              scene="https://my.spline.design/aiassistanthoverandclickinteraction-SpTH6FiO0zIigjJdHqcNf8ZR/"
-              onLoad={onSplineLoad}
-              onError={onSplineError}
-              style={{
-                width: '100%',
-                height: '100%',
-                background: 'transparent'
-              }}
-            />
+            <div style={{ width: '100%', height: '100%' }}>
+              <SplineComponent
+                scene="https://my.spline.design/aiassistanthoverandclickinteraction-SpTH6FiO0zIigjJdHqcNf8ZR/"
+                onLoad={onSplineLoad}
+                onError={handleSplineError}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: 'transparent'
+                }}
+              />
+            </div>
           </div>
         </ErrorBoundary>
       )}
