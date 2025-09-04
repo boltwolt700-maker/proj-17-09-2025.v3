@@ -128,21 +128,6 @@ const Dashboard = () => {
       category: 'Create & Generate',
       items: [
         {
-          name: 'Post Generator',
-          path: '/dashboard/post-generator',
-          icon: PenTool,
-        },
-        {
-          name: 'Carousel Maker',
-          path: '/dashboard/carousel-maker',
-          icon: Image,
-        },
-        {
-          name: 'Repurpose Content',
-          path: '/dashboard/repurpose-content',
-          icon: RefreshCw,
-        },
-        {
           name: 'AI-Powered Personal Brand Audit',
           path: '/dashboard/brand-audit',
           icon: TrendingUp,
