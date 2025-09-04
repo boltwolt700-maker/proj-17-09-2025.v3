@@ -21,7 +21,7 @@ const Solution = () => {
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {/* Content Creation */}
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '0.2s' }}>
-            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
+            <div className="card-metallic bg-white rounded-2xl overflow-hidden border border-slate-200 transition-all duration-300 h-full">
               {/* Top colored section */}
               <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-6 relative">
                 <div className="flex items-center justify-between mb-4">
@@ -61,7 +61,7 @@ const Solution = () => {
 
           {/* Career Hub */}
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '0.4s' }}>
-            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
+            <div className="card-metallic bg-white rounded-2xl overflow-hidden border border-slate-200 transition-all duration-300 h-full">
               {/* Top colored section */}
               <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-6 relative">
                 <div className="flex items-center justify-between mb-4">
@@ -101,7 +101,7 @@ const Solution = () => {
 
           {/* Upskilling */}
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '0.6s' }}>
-            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 h-full">
+            <div className="card-metallic bg-white rounded-2xl overflow-hidden border border-slate-200 transition-all duration-300 h-full">
               {/* Top colored section */}
               <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-6 relative">
                 <div className="flex items-center justify-between mb-4">

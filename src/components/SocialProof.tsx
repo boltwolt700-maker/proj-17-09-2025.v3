@@ -133,7 +133,7 @@ const SocialProof = () => {
                 className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 text-center">
+                <div className="card-metallic bg-white rounded-2xl p-6 border border-slate-100 transition-all duration-300 text-center">
                   <Icon className={`w-8 h-8 ${stat.color} mb-4 mx-auto`} />
                   <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.number}</div>
                   <div className="text-slate-600 font-medium mb-1">{stat.label}</div>
@@ -150,6 +150,7 @@ const SocialProof = () => {
             <div
               key={index}
               className={`group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group card-metallic bg-white rounded-2xl overflow-hidden border border-slate-200 transition-all duration-500 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               {/* Top colored section */}

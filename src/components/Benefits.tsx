@@ -65,7 +65,7 @@ const Benefits = () => {
             return (
               <div
                 key={index}
-                className={`group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group card-metallic bg-white rounded-2xl overflow-hidden border border-slate-200 transition-all duration-500 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 0.2}s` }}
               >
                 {/* Top colored section */}

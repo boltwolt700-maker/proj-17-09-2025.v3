@@ -104,7 +104,7 @@ const Features = () => {
 
   const FeatureCard = ({ feature, index, delay }: { feature: any, index: number, delay: string }) => (
     <div
-      className={`group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-indigo-300/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/10 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`group card-metallic bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-indigo-300/50 transition-all duration-500 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: delay }}
     >
       {/* Top colored section */}

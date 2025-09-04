@@ -123,7 +123,7 @@ const DashboardHome = () => {
             <button
               key={index}
               onClick={() => navigate(action.path)}
-              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-violet-400/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/25 text-left"
+              className="group card-metallic bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-violet-400/50 transition-all duration-300 text-left"
             >
               {/* Top colored section */}
               <div className={`bg-gradient-to-r ${action.color} p-6 relative`}>
@@ -155,6 +155,7 @@ const DashboardHome = () => {
             <div
               key={index}
               className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 hover:border-violet-400/30 hover:bg-slate-800/80"
+              className="card-metallic bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 transition-all duration-300 hover:border-violet-400/30 hover:bg-slate-800/80"
             >
               <div className="flex items-center justify-between mb-4">
                 <Icon className={`w-6 h-6 ${stat.color}`} />

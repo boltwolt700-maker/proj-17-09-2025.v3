@@ -92,6 +92,7 @@ const Pricing = () => {
             <div
               key={index}
               className={`group relative bg-white rounded-2xl overflow-hidden border transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:border-indigo-400/50 hover:shadow-indigo-500/20 ${
+              className={`group relative card-metallic bg-white rounded-2xl overflow-hidden border transition-all duration-500 ${
                 plan.popular 
                   ? 'border-indigo-400 shadow-lg shadow-indigo-500/20 ring-2 ring-indigo-400/20' 
                   : 'border-slate-200/50'
