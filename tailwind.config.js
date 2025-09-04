@@ -4,14 +4,7 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      scrollbar: {
-        thin: {
-          width: '6px',
-        },
-      },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar')({ nocompatible: true }),
-  ],
+  plugins: [],
 };
