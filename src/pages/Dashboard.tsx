@@ -155,12 +155,6 @@ const Dashboard = () => {
           description: 'AI-powered thought leadership content generation'
         },
         {
-          name: 'AI Brand Intelligence',
-          path: '/dashboard/ai-brand-intelligence',
-          icon: Brain,
-          description: 'Unified AI coach for brand growth and reputation management'
-        },
-        {
           name: 'AI-Generated Career Portfolio/Microsite',
           path: '/dashboard/career-portfolio',
           icon: Globe,
@@ -171,6 +165,12 @@ const Dashboard = () => {
           path: '/dashboard/career-event-scout',
           icon: Users,
           description: 'Discover events, track role models, and build meaningful connections'
+        },
+        {
+          name: 'AI Brand Intelligence',
+          path: '/dashboard/ai-brand-intelligence',
+          icon: Brain,
+          description: 'Unified AI coach for brand growth and reputation management'
         }
       ]
     },
@@ -343,9 +343,6 @@ const Dashboard = () => {
           <div className="relative">
             <Routes>
               <Route path="/" element={<DashboardHome />} />
-              <Route path="/post-generator" element={<PostGenerator />} />
-              <Route path="/carousel-maker" element={<CarouselMaker />} />
-              <Route path="/repurpose-content" element={<RepurposeContent />} />
               <Route path="/brand-audit" element={<BrandAudit />} />
               <Route path="/content-engine" element={<ContentEngine />} />
               <Route path="/career-portfolio" element={<CareerPortfolio />} />

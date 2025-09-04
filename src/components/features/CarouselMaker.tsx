@@ -169,19 +169,7 @@ const CarouselMaker = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-          <Image className="w-6 h-6 text-white" />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold text-gray-50">Carousel Maker</h1>
-          <p className="text-gray-400 mt-1">Design professional multi-slide carousels</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Content Creation */}
         <div className="lg:col-span-2 space-y-6">
           {/* Generation Controls */}
@@ -484,7 +472,6 @@ const CarouselMaker = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

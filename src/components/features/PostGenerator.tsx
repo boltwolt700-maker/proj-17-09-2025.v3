@@ -124,19 +124,7 @@ What's your experience with ${prompt.toLowerCase()}? I'd love to hear your thoug
   };
 
   return (
-    <div className="p-6 lg:p-8 max-w-4xl mx-auto">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
-          <PenTool className="w-6 h-6 text-white" />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold text-white">Post Generator</h1>
-          <p className="text-slate-300 mt-1">Create optimized LinkedIn posts with AI assistance</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Editor */}
         <div className="lg:col-span-2 space-y-6">
           {/* AI Generation */}
@@ -378,7 +366,6 @@ What's your experience with ${prompt.toLowerCase()}? I'd love to hear your thoug
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

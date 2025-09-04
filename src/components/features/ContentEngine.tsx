@@ -23,8 +23,16 @@ import {
   ArrowRight,
   Lightbulb,
   Zap,
-  Globe
+  Globe,
+  PenTool,
+  Image,
+  Link
 } from 'lucide-react';
+
+// Import the content creation components
+import PostGenerator from './PostGenerator';
+import CarouselMaker from './CarouselMaker';
+import RepurposeContent from './RepurposeContent';
 
 interface TrendingTopic {
   id: string;
@@ -59,6 +67,7 @@ interface ExpertiseArea {
 
 const ContentEngine = () => {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'generator' | 'calendar' | 'analytics' | 'expertise'>('dashboard');
+  const [activeGenerator, setActiveGenerator] = useState<'post' | 'carousel' | 'repurpose' | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<TrendingTopic | null>(null);
   const [generatedContent, setGeneratedContent] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
@@ -441,187 +450,76 @@ What's your experience with AI development tools? Are you seeing similar product
 
       {/* Content Generator Tab */}
       {activeTab === 'generator' && (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-6">
-            {/* Content Editor */}
-            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-50 flex items-center gap-2">
-                  <Edit className="w-5 h-5 text-purple-400" />
-                  Content Editor
+        <div>
+          {activeGenerator === null ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Post Generator */}
+              <button
+                onClick={() => setActiveGenerator('post')}
+                className="group bg-[#111827] rounded-2xl p-6 border border-gray-700/50 hover:border-indigo-400/50 transition-all duration-300 hover:transform hover:scale-105 text-left"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <PenTool className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-50 mb-3 group-hover:text-indigo-400 transition-colors">
+                  Post Generator
                 </h3>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setActiveTab('dashboard')}
-                    className="px-3 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm transition-colors"
-                  >
-                    Back to Dashboard
-                  </button>
-                </div>
-              </div>
-              
-              {selectedTopic && (
-                <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-blue-400 font-medium">{selectedTopic.title}</h4>
-                      <p className="text-gray-300 text-sm">Trending in {selectedTopic.category}</p>
-                    </div>
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getRelevanceColor(selectedTopic.relevanceScore)}`}>
-                      {selectedTopic.relevanceScore}% relevant
-                    </span>
-                  </div>
-                </div>
-              )}
+                <p className="text-gray-400 leading-relaxed">
+                  Create optimized LinkedIn posts with AI assistance and readability scoring
+                </p>
+              </button>
 
-              <textarea
-                value={generatedContent}
-                onChange={(e) => setGeneratedContent(e.target.value)}
-                placeholder="Generated content will appear here..."
-                className="w-full h-64 px-4 py-3 bg-[#1F2937] border border-gray-600 rounded-lg text-gray-50 placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none resize-none"
-              />
+              {/* Carousel Maker */}
+              <button
+                onClick={() => setActiveGenerator('carousel')}
+                className="group bg-[#111827] rounded-2xl p-6 border border-gray-700/50 hover:border-purple-400/50 transition-all duration-300 hover:transform hover:scale-105 text-left"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Image className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-50 mb-3 group-hover:text-purple-400 transition-colors">
+                  Carousel Maker
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Design professional multi-slide carousels with AI content generation
+                </p>
+              </button>
 
-              <div className="flex items-center justify-between mt-4">
-                <div className="text-sm text-gray-400">
-                  {generatedContent.length} characters
+              {/* Repurpose Content */}
+              <button
+                onClick={() => setActiveGenerator('repurpose')}
+                className="group bg-[#111827] rounded-2xl p-6 border border-gray-700/50 hover:border-green-400/50 transition-all duration-300 hover:transform hover:scale-105 text-left"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <RefreshCw className="w-6 h-6 text-white" />
                 </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => alert('Content saved as draft!')}
-                    className="flex items-center gap-2 px-3 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm transition-colors"
-                  >
-                    <Save className="w-4 h-4" />
-                    Save Draft
-                  </button>
-                  <button
-                    onClick={() => alert('Content published!')}
-                    className="flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm transition-colors"
-                  >
-                    <Send className="w-4 h-4" />
-                    Publish
-                  </button>
-                </div>
-              </div>
+                <h3 className="text-xl font-bold text-gray-50 mb-3 group-hover:text-green-400 transition-colors">
+                  Repurpose Content
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Transform existing content into multiple LinkedIn post formats
+                </p>
+              </button>
             </div>
-
-            {/* Content Controls */}
-            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
-              <h3 className="text-lg font-semibold text-gray-50 mb-4">Content Settings</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Content Type</label>
-                  <select
-                    value={contentType}
-                    onChange={(e) => setContentType(e.target.value as any)}
-                    className="w-full px-3 py-2 bg-[#1F2937] border border-gray-600 rounded-lg text-gray-50 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none"
-                  >
-                    <option value="post">LinkedIn Post</option>
-                    <option value="thread">Twitter Thread</option>
-                    <option value="article">Long-form Article</option>
-                    <option value="carousel">Carousel Slides</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Tone</label>
-                  <select
-                    value={tone}
-                    onChange={(e) => setTone(e.target.value as any)}
-                    className="w-full px-3 py-2 bg-[#1F2937] border border-gray-600 rounded-lg text-gray-50 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none"
-                  >
-                    <option value="professional">Professional</option>
-                    <option value="conversational">Conversational</option>
-                    <option value="inspirational">Inspirational</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Platforms</label>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setSelectedPlatforms(prev => 
-                        prev.includes('linkedin') 
-                          ? prev.filter(p => p !== 'linkedin')
-                          : [...prev, 'linkedin']
-                      )}
-                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        selectedPlatforms.includes('linkedin')
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                      }`}
-                    >
-                      LinkedIn
-                    </button>
-                    <button
-                      onClick={() => setSelectedPlatforms(prev => 
-                        prev.includes('twitter') 
-                          ? prev.filter(p => p !== 'twitter')
-                          : [...prev, 'twitter']
-                      )}
-                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        selectedPlatforms.includes('twitter')
-                          ? 'bg-blue-400 text-white'
-                          : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                      }`}
-                    >
-                      Twitter
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Content Quality Score */}
-            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
-              <h3 className="text-lg font-semibold text-gray-50 mb-4">Content Quality</h3>
-              <div className="text-center mb-4">
-                <div className="text-3xl font-bold text-green-400 mb-1">92</div>
-                <div className="text-gray-400 text-sm">Quality Score</div>
-              </div>
-              
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Authenticity</span>
-                  <span className="text-green-400">Excellent</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Trend Relevance</span>
-                  <span className="text-green-400">Very Good</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Engagement Potential</span>
-                  <span className="text-blue-400">High</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Authority Building</span>
-                  <span className="text-green-400">Strong</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
-              <h3 className="text-lg font-semibold text-gray-50 mb-4">Quick Actions</h3>
-              <div className="space-y-2">
-                <button className="w-full text-left p-3 text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-lg transition-colors">
-                  Generate variations
-                </button>
-                <button className="w-full text-left p-3 text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-lg transition-colors">
-                  Schedule for optimal time
-                </button>
-                <button className="w-full text-left p-3 text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-lg transition-colors">
-                  Add to content series
-                </button>
-                <button className="w-full text-left p-3 text-gray-300 hover:text-white hover:bg-gray-700/30 rounded-lg transition-colors">
-                  Export to other platforms
+          ) : (
+            <div>
+              {/* Back Button */}
+              <div className="mb-6">
+                <button
+                  onClick={() => setActiveGenerator(null)}
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-medium transition-colors"
+                >
+                  <ArrowRight className="w-4 h-4 rotate-180" />
+                  Back to Content Generator
                 </button>
               </div>
+
+              {/* Render Selected Generator */}
+              {activeGenerator === 'post' && <PostGenerator />}
+              {activeGenerator === 'carousel' && <CarouselMaker />}
+              {activeGenerator === 'repurpose' && <RepurposeContent />}
             </div>
-          </div>
+          )}
         </div>
       )}
 

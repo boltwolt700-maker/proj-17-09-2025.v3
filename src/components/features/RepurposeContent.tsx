@@ -204,19 +204,7 @@ const RepurposeContent = () => {
   };
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
-          <RefreshCw className="w-6 h-6 text-white" />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold text-gray-50">Repurpose Content</h1>
-          <p className="text-gray-400 mt-1">Transform existing content into LinkedIn posts</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* URL Input */}
@@ -480,7 +468,6 @@ const RepurposeContent = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
