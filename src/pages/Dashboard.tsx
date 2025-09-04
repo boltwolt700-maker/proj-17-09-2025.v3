@@ -242,16 +242,16 @@ const Dashboard = () => {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className={`min-h-screen flex ${
+    <div className={`h-screen flex overflow-hidden ${
       theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
     }`}>
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 shadow-xl transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 shadow-xl transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex lg:flex-col ${
         theme === 'light' 
           ? 'bg-white border-r border-gray-200' 
           : 'bg-slate-900 border-r border-slate-800'
       }`}>
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full overflow-hidden">
           {/* Logo */}
           <div className={`flex items-center justify-between p-6 border-b ${
             theme === 'light' ? 'border-gray-200' : 'border-slate-800'
@@ -270,7 +270,7 @@ const Dashboard = () => {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+          <nav className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin">
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
                 <h3 className={`text-xs font-semibold uppercase tracking-wider mb-3 ${
@@ -346,7 +346,7 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 lg:ml-0">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Mobile Header */}
         <header className={`lg:hidden border-b px-4 py-3 ${
           theme === 'light' 
@@ -391,7 +391,7 @@ const Dashboard = () => {
         </header>
 
         {/* Desktop Header */}
-        <header className={`hidden lg:flex items-center justify-end gap-3 p-4 border-b ${
+        <header className={`hidden lg:flex items-center justify-end gap-3 p-4 border-b flex-shrink-0 ${
           theme === 'light' 
             ? 'bg-white border-gray-200' 
             : 'bg-slate-900 border-slate-800'
@@ -419,11 +419,12 @@ const Dashboard = () => {
             <Settings className="w-5 h-5" />
           </button>
         </header>
-        {/* Page Content */}
-        <main className={`min-h-screen overflow-y-auto ${
+        
+        {/* Page Content - Scrollable */}
+        <main className={`flex-1 overflow-y-auto scrollbar-thin ${
           theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
         }`}>
-          <div className="relative">
+          <div className="relative min-h-full">
             <Routes>
               <Route path="/" element={<DashboardHome />} />
               <Route path="/brand-audit" element={<BrandAudit />} />
