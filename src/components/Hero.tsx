@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useCallback, useEffect } from 'react';
 import { ArrowRight, Play, Users, CheckCircle, Star, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -37,18 +38,20 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center pt-16 pb-20 overflow-hidden">
       {/* Spline 3D Background */}
       {!splineError && SplineComponent && (
-        <div className="absolute inset-0 z-0">
-          <SplineComponent
-            scene="https://my.spline.design/aiassistanthoverandclickinteraction-SpTH6FiO0zIigjJdHqcNf8ZR/"
-            onLoad={onSplineLoad}
-            onError={onSplineError}
-            style={{
-              width: '100%',
-              height: '100%',
-              background: 'transparent'
-            }}
-          />
-        </div>
+        <ErrorBoundary onCatch={onSplineError}>
+          <div className="absolute inset-0 z-0">
+            <SplineComponent
+              scene="https://my.spline.design/aiassistanthoverandclickinteraction-SpTH6FiO0zIigjJdHqcNf8ZR/"
+              onLoad={onSplineLoad}
+              onError={onSplineError}
+              style={{
+                width: '100%',
+                height: '100%',
+                background: 'transparent'
+              }}
+            />
+          </div>
+        </ErrorBoundary>
       )}
 
       {/* Fallback Background (if Spline fails to load) */}
