@@ -58,6 +58,7 @@ import CareerEventScout from '../components/features/CareerEventScout';
 import AIBrandIntelligence from '../components/features/AIBrandIntelligence';
 import SkillRadar from '../components/features/SkillRadar';
 import Sprints from '../components/features/Sprints';
+import Certifications from '../components/features/Certifications';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -426,7 +427,7 @@ const Dashboard = () => {
               <Route path="/skill-radar" element={<SkillRadar />} />
               <Route path="/learning-path" element={<div className="p-8 text-center"><BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" /><h2 className="text-2xl font-bold text-white mb-2">Learning Path Coming Soon!</h2><p className="text-gray-400">Personalized learning roadmaps are being developed</p></div>} />
               <Route path="/sprints" element={<Sprints />} />
-              <Route path="/certifications" element={<div>Certifications Coming Soon!</div>} />
+              <Route path="/certifications" element={<Certifications />} />
               <Route path="/skill-benchmarking" element={<div>Skill Benchmarking Coming Soon!</div>} />
               <Route path="/cover-letter-generator" element={<CoverLetterGenerator />} />
               <Route path="/work-history-manager" element={<ResumeManager />} />
