@@ -20,7 +20,8 @@ import {
   Award,
   TrendingUp,
   BookOpen,
-  Flame,
+  Sparkles,
+  X
   Timer,
   User,
   BarChart3,
