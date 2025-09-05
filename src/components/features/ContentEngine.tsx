@@ -453,7 +453,8 @@ What's your experience with AI development tools? Are you seeing similar product
       {activeTab === 'generator' && (
         <div>
           {activeGenerator === null ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Post Generator */}
               <button
                 onClick={() => setActiveGenerator('post')}
@@ -537,7 +538,8 @@ What's your experience with AI development tools? Are you seeing similar product
                   Schedule and manage your content calendar
                 </p>
               </button>
-            </div>
+              </div>
+            </>
           ) : (
             <div>
               {/* Back Button */}
