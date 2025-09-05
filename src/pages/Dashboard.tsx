@@ -138,7 +138,7 @@ const Dashboard = () => {
       ]
     },
     {
-      category: 'Create & Generate',
+      category: 'Brand Building',
       items: [
         {
           name: 'AI-Powered Personal Brand Audit',
@@ -210,17 +210,6 @@ const Dashboard = () => {
           path: '/dashboard/skill-benchmarking',
           icon: BarChart2,
           description: 'Compare your skills against market and top performers'
-        }
-      ]
-    },
-    {
-      category: 'Account',
-      items: [
-        {
-          name: 'Team Management & Settings',
-          path: '/dashboard/team-management',
-          icon: Users,
-          description: 'Team collaboration and management tools'
         }
       ]
     }
