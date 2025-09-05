@@ -35,7 +35,12 @@ import {
   TrendingUp,
   Globe,
   Briefcase,
-  GraduationCap
+  GraduationCap,
+  Brain,
+  Flame,
+  Heart,
+  Share2
+} from 'lucide-react';
 
 interface Sprint {
   id: string;
