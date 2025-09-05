@@ -208,16 +208,6 @@ const Dashboard = () => {
       ]
     },
     {
-      category: 'Grow & Engage',
-      items: [
-        {
-          name: 'Analytics',
-          path: '/dashboard/analytics',
-          icon: TrendingUp,
-        },
-      ]
-    },
-    {
       category: 'Account',
       items: [
         {
