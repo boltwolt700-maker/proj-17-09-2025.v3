@@ -426,13 +426,12 @@ const Dashboard = () => {
               <Route path="/interview-prep" element={<InterviewPrepKit />} />
               <Route path="/smart-resume-studio" element={<SmartResumeStudio />} />
               <Route path="/application-tailor" element={<ApplicationTailor />} />
-              <Route path="/upskilling-dashboard" element={<div>Upskilling Dashboard Coming Soon!</div>} />
+              <Route path="/upskilling-dashboard" element={<UpskillingDashboard />} />
               <Route path="/skill-radar" element={<SkillRadar />} />
               <Route path="/learning-path" element={<LearningPath />} />
               <Route path="/sprints" element={<Sprints />} />
               <Route path="/certifications" element={<Certifications />} />
               <Route path="/skill-benchmarking" element={<SkillBenchmarking />} />
-              <Route path="/upskilling-dashboard" element={<UpskillingDashboard />} />
               <Route path="/cover-letter-generator" element={<CoverLetterGenerator />} />
               <Route path="/work-history-manager" element={<ResumeManager />} />
               <Route path="/analytics" element={<Analytics />} />
