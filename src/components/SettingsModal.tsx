@@ -359,36 +359,36 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
               
-              <h4 className={`text-md font-semibold mt-8 mb-4 ${
-                theme === 'light' ? 'text-gray-900' : 'text-white'
-              }`}>
-                Notification Preferences
-              </h4>
-              
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className={`font-medium ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>Performance Reports</h4>
-                    <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-slate-400'}`}>Weekly analytics and insights</p>
-                  </div>
-                  <button className="relative inline-flex items-center h-6 rounded-full w-11 bg-indigo-600">
-                    <span className="sr-only">Enable reports</span>
-                    <span className="translate-x-6 inline-block w-4 h-4 transform bg-white rounded-full transition"></span>
-                  </button>
-                </div>
+                <h4 className={`text-md font-semibold mt-8 mb-4 ${
+                  theme === 'light' ? 'text-gray-900' : 'text-white'
+                }`}>
+                  Notification Preferences
+                </h4>
                 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className={`font-medium ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>Team Activity</h4>
-                    <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-slate-400'}`}>Notifications when team members post or comment</p>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className={`font-medium ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>Performance Reports</h4>
+                      <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-slate-400'}`}>Weekly analytics and insights</p>
+                    </div>
+                    <button className="relative inline-flex items-center h-6 rounded-full w-11 bg-indigo-600">
+                      <span className="sr-only">Enable reports</span>
+                      <span className="translate-x-6 inline-block w-4 h-4 transform bg-white rounded-full transition"></span>
+                    </button>
                   </div>
-                  <button className="relative inline-flex items-center h-6 rounded-full w-11 bg-gray-600">
-                    <span className="sr-only">Enable team notifications</span>
-                    <span className="inline-block w-4 h-4 transform bg-white rounded-full transition"></span>
-                  </button>
+                  
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className={`font-medium ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>Team Activity</h4>
+                      <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-slate-400'}`}>Notifications when team members post or comment</p>
+                    </div>
+                    <button className="relative inline-flex items-center h-6 rounded-full w-11 bg-gray-600">
+                      <span className="sr-only">Enable team notifications</span>
+                      <span className="inline-block w-4 h-4 transform bg-white rounded-full transition"></span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            )}
             )}
 
             {activeTab === 'privacy' && (
