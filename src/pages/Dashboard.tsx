@@ -422,7 +422,6 @@ const Dashboard = () => {
               <Route path="/smart-resume-studio" element={<SmartResumeStudio />} />
               <Route path="/application-tailor" element={<ApplicationTailor />} />
               <Route path="/upskilling-dashboard" element={<div>Upskilling Dashboard Coming Soon!</div>} />
-              <Route path="/skill-radar" element={<div>Skill Radar Coming Soon!</div>} />
               <Route path="/skill-radar" element={<SkillRadar />} />
               <Route path="/learning-path" element={<div>Learning Path Coming Soon!</div>} />
               <Route path="/sprints" element={<div>Sprints Coming Soon!</div>} />
