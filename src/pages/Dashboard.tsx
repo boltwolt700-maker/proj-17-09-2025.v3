@@ -56,6 +56,7 @@ import CareerPortfolio from '../components/features/CareerPortfolio';
 import AIMentor from '../components/features/AIMentor';
 import CareerEventScout from '../components/features/CareerEventScout';
 import AIBrandIntelligence from '../components/features/AIBrandIntelligence';
+import SkillRadar from '../components/features/SkillRadar';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -422,6 +423,7 @@ const Dashboard = () => {
               <Route path="/application-tailor" element={<ApplicationTailor />} />
               <Route path="/upskilling-dashboard" element={<div>Upskilling Dashboard Coming Soon!</div>} />
               <Route path="/skill-radar" element={<div>Skill Radar Coming Soon!</div>} />
+              <Route path="/skill-radar" element={<SkillRadar />} />
               <Route path="/learning-path" element={<div>Learning Path Coming Soon!</div>} />
               <Route path="/sprints" element={<div>Sprints Coming Soon!</div>} />
               <Route path="/certifications" element={<div>Certifications Coming Soon!</div>} />
