@@ -28,7 +28,7 @@ import {
   Lightbulb,
   Rocket,
   Shield,
-  Palette,
+  X,
   Settings,
   Eye,
   Download,
