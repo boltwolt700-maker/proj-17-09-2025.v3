@@ -21,7 +21,7 @@ import {
   TrendingUp,
   BookOpen,
   Sparkles,
-  X
+  X,
   Timer,
   User,
   BarChart3,
