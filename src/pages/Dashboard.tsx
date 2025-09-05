@@ -220,6 +220,7 @@ const Dashboard = () => {
           name: 'Team Management & Settings',
           path: '/dashboard/team-management',
           icon: Users,
+          description: 'Team collaboration and management tools'
         }
       ]
     }
