@@ -215,11 +215,6 @@ const Dashboard = () => {
           path: '/dashboard/analytics',
           icon: TrendingUp,
         },
-        {
-          name: 'Comment Helper',
-          path: '/dashboard/comment-helper',
-          icon: MessageCircle,
-        }
       ]
     },
     {

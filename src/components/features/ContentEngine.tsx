@@ -33,6 +33,7 @@ import {
 import PostGenerator from './PostGenerator';
 import CarouselMaker from './CarouselMaker';
 import RepurposeContent from './RepurposeContent';
+import CommentHelper from './CommentHelper';
 
 interface TrendingTopic {
   id: string;
@@ -469,6 +470,22 @@ What's your experience with AI development tools? Are you seeing similar product
                 </p>
               </button>
 
+              {/* Comment Helper */}
+              <button
+                onClick={() => setActiveGenerator('comment')}
+                className="group bg-[#111827] rounded-2xl p-6 border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105 text-left"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-50 mb-3 group-hover:text-blue-400 transition-colors">
+                  Comment Helper
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Generate strategic comments for engagement and relationship building
+                </p>
+              </button>
+
               {/* Carousel Maker */}
               <button
                 onClick={() => setActiveGenerator('carousel')}
@@ -485,6 +502,10 @@ What's your experience with AI development tools? Are you seeing similar product
                 </p>
               </button>
 
+            </div>
+            
+            {/* Second Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
               {/* Repurpose Content */}
               <button
                 onClick={() => setActiveGenerator('repurpose')}
@@ -498,6 +519,22 @@ What's your experience with AI development tools? Are you seeing similar product
                 </h3>
                 <p className="text-gray-400 leading-relaxed">
                   Transform existing content into multiple LinkedIn post formats
+                </p>
+              </button>
+
+              {/* Calendar & Post Queue */}
+              <button
+                onClick={() => setActiveTab('calendar')}
+                className="group bg-[#111827] rounded-2xl p-6 border border-gray-700/50 hover:border-orange-400/50 transition-all duration-300 hover:transform hover:scale-105 text-left"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Calendar className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-50 mb-3 group-hover:text-orange-400 transition-colors">
+                  Calendar & Post Queue
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Schedule and manage your content calendar
                 </p>
               </button>
             </div>
@@ -516,6 +553,7 @@ What's your experience with AI development tools? Are you seeing similar product
 
               {/* Render Selected Generator */}
               {activeGenerator === 'post' && <PostGenerator />}
+              {activeGenerator === 'comment' && <CommentHelper />}
               {activeGenerator === 'carousel' && <CarouselMaker />}
               {activeGenerator === 'repurpose' && <RepurposeContent />}
             </div>
