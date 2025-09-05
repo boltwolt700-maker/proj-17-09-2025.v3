@@ -61,6 +61,7 @@ import LearningPath from '../components/features/LearningPath';
 import Sprints from '../components/features/Sprints';
 import Certifications from '../components/features/Certifications';
 import SkillBenchmarking from '../components/features/SkillBenchmarking';
+import UpskillingDashboard from '../components/features/UpskillingDashboard';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -431,6 +432,7 @@ const Dashboard = () => {
               <Route path="/sprints" element={<Sprints />} />
               <Route path="/certifications" element={<Certifications />} />
               <Route path="/skill-benchmarking" element={<SkillBenchmarking />} />
+              <Route path="/upskilling-dashboard" element={<UpskillingDashboard />} />
               <Route path="/cover-letter-generator" element={<CoverLetterGenerator />} />
               <Route path="/work-history-manager" element={<ResumeManager />} />
               <Route path="/analytics" element={<Analytics />} />
