@@ -358,7 +358,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
                     </button>
                   </div>
                 </div>
-              </div>
               
               <h4 className={`text-md font-semibold mt-8 mb-4 ${
                 theme === 'light' ? 'text-gray-900' : 'text-white'
@@ -389,6 +388,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
                   </button>
                 </div>
               </div>
+            )}
             )}
 
             {activeTab === 'privacy' && (
