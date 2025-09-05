@@ -26,7 +26,8 @@ import {
   Globe,
   PenTool,
   Image,
-  Link
+  Link,
+  MessageCircle
 } from 'lucide-react';
 
 // Import the content creation components
