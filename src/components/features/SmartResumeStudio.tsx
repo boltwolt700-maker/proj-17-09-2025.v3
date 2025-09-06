@@ -180,6 +180,25 @@ EXPERIENCE
 [Job Title] | [Company Name] | [Start Date - End Date]
 • [Achievement or responsibility]
 • [Achievement or responsibility]
+• [Achievement or responsibility]
+
+EDUCATION
+[Degree] in [Field of Study]
+[University Name] | [Graduation Year]`,
+      atsScore: 0,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    
+    setResumes([emptyResume]);
+    setActiveResumeId(emptyResume.id);
+    setActiveResume(emptyResume);
+    setEditorContent(emptyResume.content);
+    setUndoHistory([emptyResume.content]);
+    setHistoryPointer(0);
+    setStep('studio');
+  };
+
   const handleCVFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -212,7 +231,7 @@ EXPERIENCE
           extractedContent = await file.text();
         } else {
           // Mock extracted content for PDF/DOCX files
-          extractedContent = \`${file.name.replace(/\.[^/.]+$/, '').toUpperCase()}
+          extractedContent = `${file.name.replace(/\.[^/.]+$/, '').toUpperCase()}
 Software Engineer
 email@example.com | (555) 123-4567 | LinkedIn: linkedin.com/in/profile
 
@@ -259,25 +278,6 @@ CERTIFICATIONS
         setIsLoading(false);
       }
     }
-  };
-
-• [Achievement or responsibility]
-
-EDUCATION
-[Degree] in [Field of Study]
-[University Name] | [Graduation Year]`,
-      atsScore: 0,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
-    
-    setResumes([emptyResume]);
-    setActiveResumeId(emptyResume.id);
-    setActiveResume(emptyResume);
-    setEditorContent(emptyResume.content);
-    setUndoHistory([emptyResume.content]);
-    setHistoryPointer(0);
-    setStep('studio');
   };
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -577,7 +577,7 @@ EDUCATION
   // Step 1: Initial Selection
   if (step === 'selection') {
     return (
-      <div className={`p-6 lg:p-8 max-w-6xl mx-auto ${
+      <div className={\`p-6 lg:p-8 max-w-6xl mx-auto ${
         theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
       }`}>
         {/* Header */}
@@ -586,10 +586,10 @@ EDUCATION
             <FileText className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className={`text-3xl font-bold ${
+            <h1 className={\`text-3xl font-bold ${
               theme === 'light' ? 'text-gray-900' : 'text-gray-50'
             }`}>Smart Resume Studio</h1>
-            <p className={`mt-1 ${
+            <p className={\`mt-1 ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-400'
             }`}>AI-powered resume creation and optimization</p>
           </div>
@@ -597,7 +597,7 @@ EDUCATION
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Choose CV Option */}
-          <div className={`rounded-2xl p-8 border text-center hover:transform hover:scale-105 transition-all duration-300 cursor-pointer ${
+          <div className={\`rounded-2xl p-8 border text-center hover:transform hover:scale-105 transition-all duration-300 cursor-pointer ${
             theme === 'light' 
               ? 'bg-white border-gray-200 hover:border-blue-300 hover:shadow-lg' 
               : 'bg-[#111827] border-gray-700/50 hover:border-blue-400/50'
@@ -606,16 +606,16 @@ EDUCATION
               <Upload className="w-10 h-10 text-white" />
             </div>
             
-            <h2 className={`text-2xl font-bold mb-4 ${
+            <h2 className={\`text-2xl font-bold mb-4 ${
               theme === 'light' ? 'text-gray-900' : 'text-white'
             }`}>Choose your CV/Resume</h2>
-            <p className={`text-lg mb-6 ${
+            <p className={\`text-lg mb-6 ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-300'
             }`}>
               Load your existing CV and format it with our professional templates and AI optimization
             </p>
             
-            <div className={`space-y-3 text-sm ${
+            <div className={\`space-y-3 text-sm ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-400'
             }`}>
               <div className="flex items-center gap-2">
@@ -639,7 +639,7 @@ EDUCATION
           </div>
 
           {/* Start from Scratch Option */}
-          <div className={`rounded-2xl p-8 border text-center hover:transform hover:scale-105 transition-all duration-300 cursor-pointer ${
+          <div className={\`rounded-2xl p-8 border text-center hover:transform hover:scale-105 transition-all duration-300 cursor-pointer ${
             theme === 'light' 
               ? 'bg-white border-gray-200 hover:border-green-300 hover:shadow-lg' 
               : 'bg-[#111827] border-gray-700/50 hover:border-green-400/50'
@@ -648,16 +648,16 @@ EDUCATION
               <Plus className="w-10 h-10 text-white" />
             </div>
             
-            <h2 className={`text-2xl font-bold mb-4 ${
+            <h2 className={\`text-2xl font-bold mb-4 ${
               theme === 'light' ? 'text-gray-900' : 'text-white'
             }`}>Start from Scratch</h2>
-            <p className={`text-lg mb-6 ${
+            <p className={\`text-lg mb-6 ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-300'
             }`}>
               Create a new resume from scratch with AI guidance and professional templates
             </p>
             
-            <div className={`space-y-3 text-sm ${
+            <div className={\`space-y-3 text-sm ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-400'
             }`}>
               <div className="flex items-center gap-2">
@@ -683,65 +683,65 @@ EDUCATION
 
         {/* Features Overview */}
         <div className="mt-16 max-w-6xl mx-auto">
-          <h3 className={`text-2xl font-bold text-center mb-8 ${
+          <h3 className={\`text-2xl font-bold text-center mb-8 ${
             theme === 'light' ? 'text-gray-900' : 'text-white'
           }`}>
             What You'll Get with Smart Resume Studio
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className={`p-6 rounded-xl border ${
+            <div className={\`p-6 rounded-xl border ${
               theme === 'light' 
                 ? 'bg-white border-gray-200' 
                 : 'bg-[#111827] border-gray-700/50'
             }`}>
               <Shield className="w-8 h-8 text-blue-400 mb-4" />
-              <h4 className={`font-semibold mb-2 ${
+              <h4 className={\`font-semibold mb-2 ${
                 theme === 'light' ? 'text-gray-900' : 'text-white'
               }`}>ATS Optimization</h4>
-              <p className={`text-sm ${
+              <p className={\`text-sm ${
                 theme === 'light' ? 'text-gray-600' : 'text-gray-400'
               }`}>Beat applicant tracking systems with AI-powered formatting</p>
             </div>
 
-            <div className={`p-6 rounded-xl border ${
+            <div className={\`p-6 rounded-xl border ${
               theme === 'light' 
                 ? 'bg-white border-gray-200' 
                 : 'bg-[#111827] border-gray-700/50'
             }`}>
               <TrendingUp className="w-8 h-8 text-green-400 mb-4" />
-              <h4 className={`font-semibold mb-2 ${
+              <h4 className={\`font-semibold mb-2 ${
                 theme === 'light' ? 'text-gray-900' : 'text-white'
               }`}>Impact Enhancement</h4>
-              <p className={`text-sm ${
+              <p className={\`text-sm ${
                 theme === 'light' ? 'text-gray-600' : 'text-gray-400'
               }`}>Transform job duties into quantifiable achievements</p>
             </div>
 
-            <div className={`p-6 rounded-xl border ${
+            <div className={\`p-6 rounded-xl border ${
               theme === 'light' 
                 ? 'bg-white border-gray-200' 
                 : 'bg-[#111827] border-gray-700/50'
             }`}>
               <Target className="w-8 h-8 text-purple-400 mb-4" />
-              <h4 className={`font-semibold mb-2 ${
+              <h4 className={\`font-semibold mb-2 ${
                 theme === 'light' ? 'text-gray-900' : 'text-white'
               }`}>Job Targeting</h4>
-              <p className={`text-sm ${
+              <p className={\`text-sm ${
                 theme === 'light' ? 'text-gray-600' : 'text-gray-400'
               }`}>Create tailored resumes for specific opportunities</p>
             </div>
 
-            <div className={`p-6 rounded-xl border ${
+            <div className={\`p-6 rounded-xl border ${
               theme === 'light' 
                 ? 'bg-white border-gray-200' 
                 : 'bg-[#111827] border-gray-700/50'
             }`}>
               <Brain className="w-8 h-8 text-orange-400 mb-4" />
-              <h4 className={`font-semibold mb-2 ${
+              <h4 className={\`font-semibold mb-2 ${
                 theme === 'light' ? 'text-gray-900' : 'text-white'
               }`}>AI Copilot</h4>
-              <p className={`text-sm ${
+              <p className={\`text-sm ${
                 theme === 'light' ? 'text-gray-600' : 'text-gray-400'
               }`}>Get intelligent suggestions and gap justification</p>
             </div>
@@ -754,7 +754,7 @@ EDUCATION
   // Step 2: Upload (only shown if user clicked "Choose your CV/Resume")
   if (step === 'upload') {
     return (
-      <div className={`p-6 lg:p-8 max-w-6xl mx-auto ${
+      <div className={\`p-6 lg:p-8 max-w-6xl mx-auto ${
         theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
       }`}>
         {/* Header */}
@@ -763,10 +763,10 @@ EDUCATION
             <FileText className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className={`text-3xl font-bold ${
+            <h1 className={\`text-3xl font-bold ${
               theme === 'light' ? 'text-gray-900' : 'text-gray-50'
             }`}>Upload Your CV/Resume</h1>
-            <p className={`mt-1 ${
+            <p className={\`mt-1 ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-400'
             }`}>Upload your existing CV to get started with formatting</p>
           </div>
@@ -775,19 +775,19 @@ EDUCATION
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
             {/* Upload Resume */}
-            <div className={`rounded-2xl p-6 border ${
+            <div className={\`rounded-2xl p-6 border ${
               theme === 'light' 
                 ? 'bg-white border-gray-200' 
                 : 'bg-[#111827] border-gray-700/50'
             }`}>
-              <h3 className={`text-lg font-semibold mb-4 flex items-center gap-2 ${
+              <h3 className={\`text-lg font-semibold mb-4 flex items-center gap-2 ${
                 theme === 'light' ? 'text-gray-900' : 'text-gray-50'
               }`}>
                 <Upload className="w-5 h-5 text-blue-400" />
                 Upload Your CV/Resume
               </h3>
               
-              <div className={`border-2 border-dashed rounded-xl p-8 text-center hover:border-opacity-80 transition-colors ${
+              <div className={\`border-2 border-dashed rounded-xl p-8 text-center hover:border-opacity-80 transition-colors ${
                 theme === 'light' 
                   ? 'border-gray-300 hover:border-gray-400' 
                   : 'border-gray-600 hover:border-gray-500'
@@ -812,17 +812,17 @@ EDUCATION
                   </div>
                   
                   <div>
-                    <h4 className={`text-lg font-medium mb-2 ${
+                    <h4 className={\`text-lg font-medium mb-2 ${
                       theme === 'light' ? 'text-gray-900' : 'text-gray-50'
                     }`}>
                       {isProcessing ? 'Processing...' :
                        uploadedFile ? uploadedFile.name : 'Choose your CV/Resume'}
                     </h4>
-                    <p className={`text-sm ${
+                    <p className={\`text-sm ${
                       theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                     }`}>
                       {isProcessing ? 'Extracting content and analyzing...' :
-                       uploadedFile ? `${(uploadedFile.size / 1024 / 1024).toFixed(2)} MB • Processing complete` :
+                       uploadedFile ? \`${(uploadedFile.size / 1024 / 1024).toFixed(2)} MB • Processing complete` :
                        'PDF, DOCX, DOC, or TXT (Max 10MB)'}
                     </p>
                   </div>
@@ -839,7 +839,7 @@ EDUCATION
               </div>
 
               {uploadError && (
-                <div className={`mt-4 rounded-lg p-3 border ${
+                <div className={\`mt-4 rounded-lg p-3 border ${
                   theme === 'light' 
                     ? 'bg-red-50 border-red-200' 
                     : 'bg-red-500/10 border-red-500/20'
@@ -855,15 +855,15 @@ EDUCATION
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className={`rounded-2xl p-6 border ${
+            <div className={\`rounded-2xl p-6 border ${
               theme === 'light' 
                 ? 'bg-white border-gray-200' 
                 : 'bg-[#111827] border-gray-700/50'
             }`}>
-              <h3 className={`text-lg font-semibold mb-4 ${
+              <h3 className={\`text-lg font-semibold mb-4 ${
                 theme === 'light' ? 'text-gray-900' : 'text-gray-50'
               }`}>Supported Formats</h3>
-              <div className={`grid grid-cols-2 gap-2 text-sm ${
+              <div className={\`grid grid-cols-2 gap-2 text-sm ${
                 theme === 'light' ? 'text-gray-600' : 'text-gray-400'
               }`}>
                 <div>• PDF (.pdf)</div>
@@ -873,22 +873,22 @@ EDUCATION
               </div>
             </div>
 
-            <div className={`rounded-2xl p-6 border ${
+            <div className={\`rounded-2xl p-6 border ${
               theme === 'light' 
                 ? 'bg-white border-gray-200' 
                 : 'bg-[#111827] border-gray-700/50'
             }`}>
-              <h3 className={`text-lg font-semibold mb-4 ${
+              <h3 className={\`text-lg font-semibold mb-4 ${
                 theme === 'light' ? 'text-gray-900' : 'text-gray-50'
               }`}>What We Analyze</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Shield className="w-5 h-5 text-blue-400 mt-1" />
                   <div>
-                    <h4 className={`font-medium mb-1 ${
+                    <h4 className={\`font-medium mb-1 ${
                       theme === 'light' ? 'text-gray-900' : 'text-gray-50'
                     }`}>ATS Compatibility</h4>
-                    <p className={`text-sm ${
+                    <p className={\`text-sm ${
                       theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                     }`}>Format, keywords, and structure optimization</p>
                   </div>
@@ -897,10 +897,10 @@ EDUCATION
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-green-400 mt-1" />
                   <div>
-                    <h4 className={`font-medium mb-1 ${
+                    <h4 className={\`font-medium mb-1 ${
                       theme === 'light' ? 'text-gray-900' : 'text-gray-50'
                     }`}>Impact Enhancement</h4>
-                    <p className={`text-sm ${
+                    <p className={\`text-sm ${
                       theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                     }`}>Transform duties into quantifiable achievements</p>
                   </div>
@@ -909,10 +909,10 @@ EDUCATION
                 <div className="flex items-start gap-3">
                   <Target className="w-5 h-5 text-purple-400 mt-1" />
                   <div>
-                    <h4 className={`font-medium mb-1 ${
+                    <h4 className={\`font-medium mb-1 ${
                       theme === 'light' ? 'text-gray-900' : 'text-gray-50'
                     }`}>Job Targeting</h4>
-                    <p className={`text-sm ${
+                    <p className={\`text-sm ${
                       theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                     }`}>Tailor content for specific opportunities</p>
                   </div>
@@ -921,10 +921,10 @@ EDUCATION
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-orange-400 mt-1" />
                   <div>
-                    <h4 className={`font-medium mb-1 ${
+                    <h4 className={\`font-medium mb-1 ${
                       theme === 'light' ? 'text-gray-900' : 'text-gray-50'
                     }`}>Gap Justification</h4>
-                    <p className={`text-sm ${
+                    <p className={\`text-sm ${
                       theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                     }`}>Address career breaks professionally</p>
                   </div>
@@ -959,7 +959,7 @@ EDUCATION
             <div className="grid grid-cols-2 gap-1 bg-slate-800 rounded-lg p-1">
               <button
                 onClick={() => setActiveTab('design')}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={\`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   activeTab === 'design' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -967,7 +967,7 @@ EDUCATION
               </button>
               <button
                 onClick={() => setActiveTab('formatting')}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={\`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   activeTab === 'formatting' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -977,7 +977,7 @@ EDUCATION
             <div className="grid grid-cols-2 gap-1 bg-slate-800 rounded-lg p-1 mt-2">
               <button
                 onClick={() => setActiveTab('sections')}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={\`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   activeTab === 'sections' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -985,7 +985,7 @@ EDUCATION
               </button>
               <button
                 onClick={() => setActiveTab('ai')}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={\`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   activeTab === 'ai' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -1006,7 +1006,7 @@ EDUCATION
                       <button
                         key={palette.name}
                         onClick={() => setSelectedColors(palette)}
-                        className={`w-12 h-12 rounded-lg border-2 transition-all ${
+                        className={\`w-12 h-12 rounded-lg border-2 transition-all ${
                           selectedColors.primary === palette.primary
                             ? 'border-white scale-110'
                             : 'border-slate-600 hover:border-slate-500'
@@ -1026,7 +1026,7 @@ EDUCATION
                   <div className="flex flex-wrap gap-1 mb-4">
                     <button
                       onClick={() => setTemplateCategory('all')}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      className={\`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                         templateCategory === 'all' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
@@ -1034,7 +1034,7 @@ EDUCATION
                     </button>
                     <button
                       onClick={() => setTemplateCategory('classic')}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      className={\`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                         templateCategory === 'classic' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
@@ -1042,7 +1042,7 @@ EDUCATION
                     </button>
                     <button
                       onClick={() => setTemplateCategory('photo')}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      className={\`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                         templateCategory === 'photo' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
@@ -1050,7 +1050,7 @@ EDUCATION
                     </button>
                     <button
                       onClick={() => setTemplateCategory('modern')}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      className={\`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                         templateCategory === 'modern' ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-300 hover:text-white'
                       }`}
                     >
@@ -1064,13 +1064,13 @@ EDUCATION
                       <button
                         key={template.id}
                         onClick={() => setSelectedTemplateId(template.id)}
-                        className={`p-2 rounded-lg border transition-all ${
+                        className={\`p-2 rounded-lg border transition-all ${
                           selectedTemplateId === template.id
                             ? 'border-indigo-500 bg-indigo-500/10'
                             : 'border-slate-600 hover:border-slate-500'
                         }`}
                       >
-                        <div className={`w-full h-20 rounded mb-2 ${template.preview}`}></div>
+                        <div className={\`w-full h-20 rounded mb-2 ${template.preview}`}></div>
                         <h5 className="text-xs font-medium text-white">{template.name}</h5>
                         <p className="text-xs text-slate-400 mt-1">{template.description}</p>
                       </button>
@@ -1222,11 +1222,11 @@ EDUCATION
                     return (
                       <div
                         key={section}
-                        className={`flex items-center justify-between p-3 rounded-lg border transition-colors ${
+                        className={\`flex items-center justify-between p-3 rounded-lg border transition-colors ${
                           isActive ? 'border-green-500 bg-green-500/10' : 'border-slate-600 bg-slate-700/30'
                         }`}
                       >
-                        <span className={`text-sm ${isActive ? 'text-green-400' : 'text-slate-300'}`}>
+                        <span className={\`text-sm ${isActive ? 'text-green-400' : 'text-slate-300'}`}>
                           {section}
                         </span>
                         {isActive ? (
@@ -1522,7 +1522,7 @@ EDUCATION
                 Cancel
               </button>
               <button
-                onClick={processImportedFile}
+                onClick={() => processImportedFile(importFile!)}
                 disabled={!importFile || importStatus === 'uploading' || importStatus === 'processing'}
                 className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
               >
