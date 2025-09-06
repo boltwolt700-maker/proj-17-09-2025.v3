@@ -180,6 +180,87 @@ EXPERIENCE
 [Job Title] | [Company Name] | [Start Date - End Date]
 • [Achievement or responsibility]
 • [Achievement or responsibility]
+  const handleCVFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const allowedTypes = [
+        'application/pdf',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'application/msword',
+        'text/plain'
+      ];
+      
+      if (!allowedTypes.includes(file.type)) {
+        alert('Please select a valid file type (PDF, DOCX, DOC, or TXT)');
+        return;
+      }
+      
+      if (file.size > 10 * 1024 * 1024) {
+        alert('File size must be less than 10MB');
+        return;
+      }
+      
+      // Show loading state
+      setIsLoading(true);
+      
+      try {
+        // Simulate file processing
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        let extractedContent = '';
+        if (file.type === 'text/plain') {
+          extractedContent = await file.text();
+        } else {
+          // Mock extracted content for PDF/DOCX files
+          extractedContent = `${file.name.replace(/\.[^/.]+$/, '').toUpperCase()}
+Software Engineer
+email@example.com | (555) 123-4567 | LinkedIn: linkedin.com/in/profile
+
+PROFESSIONAL SUMMARY
+[Content extracted from ${file.name}]
+Experienced professional with expertise in software development and technology solutions.
+
+CORE SKILLS
+• Programming Languages: JavaScript, Python, Java
+• Frameworks: React, Node.js, Express
+• Databases: PostgreSQL, MongoDB
+• Cloud Platforms: AWS, Azure
+• Tools: Git, Docker, Jenkins
+
+EXPERIENCE
+Senior Software Engineer | Current Company | 2022-Present
+• Led development of web applications
+• Implemented best practices and code reviews
+• Collaborated with cross-functional teams
+• Delivered high-quality software solutions
+
+Software Engineer | Previous Company | 2020-2022
+• Developed and maintained web applications
+• Optimized application performance
+• Participated in agile development processes
+
+EDUCATION
+Bachelor of Science in Computer Science
+University Name | 2016-2020
+
+CERTIFICATIONS
+• Relevant certifications extracted from CV`;
+        }
+        
+        setEditorContent(extractedContent);
+        setUndoHistory([extractedContent]);
+        setHistoryPointer(0);
+        setStep('studio');
+        
+      } catch (error) {
+        console.error('Error processing file:', error);
+        alert('Failed to process the file. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+
 • [Achievement or responsibility]
 
 EDUCATION
@@ -1403,11 +1484,20 @@ EDUCATION
                       </p>
                     </div>
                     <button
-                      onClick={() => setImportFile(null)}
+                     onClick={() => fileInputRef.current?.click()}
                       className="text-slate-400 hover:text-white transition-colors"
                     >
-                      <X className="w-4 h-4" />
+                     Select File
                     </button>
+                   
+                   {/* Hidden file input */}
+                   <input
+                     ref={fileInputRef}
+                     type="file"
+                     accept=".pdf,.docx,.doc,.txt"
+                     onChange={handleCVFileUpload}
+                     className="hidden"
+                   />
                   </div>
                 </div>
               )}
