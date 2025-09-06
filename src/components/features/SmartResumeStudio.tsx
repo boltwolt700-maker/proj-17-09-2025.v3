@@ -296,9 +296,7 @@ SKILLS
   // If no resumes exist, show onboarding
   if (resumes.length === 0) {
     return (
-      <div className={\`min-h-screen ${
-        theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
-      }`}>
+      <div className={'min-h-screen ' + (theme === 'light' ? 'bg-gray-50' : 'bg-slate-950')}>
         <div className="flex items-center justify-center min-h-screen p-6">
           <div className="text-center max-w-2xl">
             <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
