@@ -335,7 +335,7 @@ EDUCATION
   const handleImportResume = async () => {
     if (!importFile) return;
     
-    const content = await processImportedFile(selectedFile);
+    const content = await processImportedFile(importFile);
     
     if (!content) {
       alert('Could not extract content from the file. Please try a different file.');
@@ -346,7 +346,7 @@ EDUCATION
     setImportFile(null);
     setImportStatus('idle');
     setImportError('');
-      content: content,
+  };
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -1575,7 +1575,7 @@ EDUCATION
                 Cancel
               </button>
               <button
-                onClick={processImportedFile}
+                onClick={() => processImportedFile(importFile)}
                 disabled={!importFile || importStatus === 'uploading' || importStatus === 'processing'}
                 className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
               >
