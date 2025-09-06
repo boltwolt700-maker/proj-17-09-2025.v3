@@ -223,28 +223,16 @@ const Dashboard = () => {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className={`h-screen flex overflow-hidden ${
-      theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
-    }`}>
+    <div className="h-screen flex overflow-hidden bg-background">
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 shadow-xl transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex lg:flex-col ${
-        theme === 'light' 
-          ? 'bg-white border-r border-gray-200' 
-          : 'bg-slate-900 border-r border-slate-800'
-      }`}>
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 shadow-xl transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex lg:flex-col sidebar`}>
         <div className="flex flex-col h-full overflow-hidden">
           {/* Logo */}
-          <div className={`flex items-center justify-between p-6 border-b ${
-            theme === 'light' ? 'border-gray-200' : 'border-slate-800'
-          }`}>
+          <div className="flex items-center justify-between p-6 border-b border-sidebar-border">
             <Logo />
             <button
               onClick={() => setSidebarOpen(false)}
-              className={`lg:hidden transition-colors ${
-                theme === 'light' 
-                  ? 'text-gray-400 hover:text-gray-600' 
-                  : 'text-slate-400 hover:text-slate-300'
-              }`}
+              className="lg:hidden transition-colors text-muted-foreground hover:text-foreground"
             >
               <X className="w-5 h-5" />
             </button>
@@ -254,9 +242,7 @@ const Dashboard = () => {
           <nav className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin">
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className={`text-xs font-semibold uppercase tracking-wider mb-3 ${
-                  theme === 'light' ? 'text-gray-500' : 'text-slate-400'
-                }`}>
+                <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 text-muted-foreground">
                   {section.category}
                 </h3>
                 <div className="space-y-1">
@@ -271,31 +257,13 @@ const Dashboard = () => {
                           navigate(item.path);
                           closeSidebar();
                         }}
-                        className={`w-full flex items-start space-x-3 px-3 py-3 rounded-xl text-left transition-all duration-200 group ${
-                          isActive
-                            ? theme === 'light'
-                              ? 'bg-blue-100 text-blue-700'
-                              : 'bg-slate-700 text-white'
-                            : theme === 'light'
-                              ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                              : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                        className={`sidebar-item w-full flex items-start space-x-3 px-3 py-3 text-left transition-all duration-200 group ${
+                          isActive ? 'active' : ''
                         }`}
                       >
-                        <Icon className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
-                          isActive
-                            ? theme === 'light' ? 'text-blue-700' : 'text-white'
-                            : theme === 'light' 
-                              ? 'text-gray-400 group-hover:text-gray-600' 
-                              : 'text-slate-400 group-hover:text-slate-300'
-                        }`} />
+                        <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" />
                         <div>
-                          <div className={`font-medium ${
-                            isActive
-                              ? theme === 'light' ? 'text-blue-700' : 'text-white'
-                              : theme === 'light' 
-                                ? 'text-gray-600 group-hover:text-gray-900' 
-                                : 'text-slate-300 group-hover:text-white'
-                          }`}>
+                          <div className="font-medium">
                             {item.name}
                           </div>
                         </div>
@@ -308,16 +276,10 @@ const Dashboard = () => {
           </nav>
 
           {/* Sign Out */}
-          <div className={`p-4 border-t ${
-            theme === 'light' ? 'border-gray-200' : 'border-slate-800'
-          }`}>
+          <div className="p-4 border-t border-sidebar-border">
             <button
               onClick={handleSignOut}
-              className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-colors ${
-                theme === 'light'
-                  ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
+              className="sidebar-item w-full flex items-center gap-3 px-3 py-3 transition-colors"
             >
               <LogOut className="w-5 h-5" />
               <span>Sign Out</span>
@@ -329,19 +291,11 @@ const Dashboard = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Mobile Header */}
-        <header className={`lg:hidden border-b px-4 py-3 ${
-          theme === 'light' 
-            ? 'bg-white border-gray-200' 
-            : 'bg-slate-900 border-slate-800'
-        }`}>
+        <header className="lg:hidden border-b border-border px-4 py-3 bg-card">
           <div className="flex items-center justify-between">
             <button
               onClick={() => setSidebarOpen(true)}
-              className={`transition-colors ${
-                theme === 'light' 
-                  ? 'text-gray-400 hover:text-gray-600' 
-                  : 'text-slate-400 hover:text-slate-300'
-              }`}
+              className="transition-colors text-muted-foreground hover:text-foreground"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -349,21 +303,13 @@ const Dashboard = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors ${
-                  theme === 'light' 
-                    ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                    : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-                }`}
+                className="p-2 rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-accent"
               >
                 {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
               </button>
               <button
                 onClick={() => setShowSettings(true)}
-                className={`p-2 rounded-lg transition-colors ${
-                  theme === 'light' 
-                    ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                    : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-                }`}
+                className="p-2 rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-accent"
               >
                 <Settings className="w-5 h-5" />
               </button>
@@ -372,29 +318,17 @@ const Dashboard = () => {
         </header>
 
         {/* Desktop Header */}
-        <header className={`hidden lg:flex items-center justify-end gap-3 p-4 border-b flex-shrink-0 ${
-          theme === 'light' 
-            ? 'bg-white border-gray-200' 
-            : 'bg-slate-900 border-slate-800'
-        }`}>
+        <header className="hidden lg:flex items-center justify-end gap-3 p-4 border-b border-border flex-shrink-0 bg-card">
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-lg transition-colors ${
-              theme === 'light' 
-                ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-            }`}
+            className="p-2 rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-accent"
             title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           >
             {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
           </button>
           <button
             onClick={() => setShowSettings(true)}
-            className={`p-2 rounded-lg transition-colors ${
-              theme === 'light' 
-                ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-            }`}
+            className="p-2 rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-accent"
             title="Settings"
           >
             <Settings className="w-5 h-5" />
@@ -402,9 +336,7 @@ const Dashboard = () => {
         </header>
         
         {/* Page Content - Scrollable */}
-        <main className={`flex-1 overflow-y-auto scrollbar-thin ${
-          theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
-        }`}>
+        <main className="flex-1 overflow-y-auto scrollbar-thin bg-background">
           <div className="relative min-h-full">
             <Routes>
               <Route path="/" element={<DashboardHome />} />
