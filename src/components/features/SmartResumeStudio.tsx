@@ -212,7 +212,7 @@ EXPERIENCE
           extractedContent = await file.text();
         } else {
           // Mock extracted content for PDF/DOCX files
-          extractedContent = `${file.name.replace(/\.[^/.]+$/, '').toUpperCase()}
+          extractedContent = \`${file.name.replace(/\.[^/.]+$/, '').toUpperCase()}
 Software Engineer
 email@example.com | (555) 123-4567 | LinkedIn: linkedin.com/in/profile
 
