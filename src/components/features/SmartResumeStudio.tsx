@@ -577,7 +577,7 @@ CERTIFICATIONS
   // Step 1: Initial Selection
   if (step === 'selection') {
     return (
-      <div className={\`p-6 lg:p-8 max-w-6xl mx-auto ${
+      <div className={`p-6 lg:p-8 max-w-6xl mx-auto ${
         theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
       }`}>
         {/* Header */}
