@@ -358,69 +358,6 @@ EDUCATION
     }
   };
 
-  const processImportedFile = async () => {
-    if (!importFile) return;
-    
-    setImportStatus('uploading');
-    
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setImportStatus('processing');
-      
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      let extractedContent = '';
-      if (importFile.type === 'text/plain') {
-        extractedContent = await importFile.text();
-      } else {
-        extractedContent = `IMPORTED RESUME
-${importFile.name.replace(/\.[^/.]+$/, '')}
-
-PROFESSIONAL SUMMARY
-[Content extracted from ${importFile.name}]
-
-EXPERIENCE
-[Experience section extracted]
-
-EDUCATION
-[Education section extracted]
-
-SKILLS
-[Skills section extracted]`;
-      }
-      
-      const newResume: Resume = {
-        id: Date.now().toString(),
-        title: `Imported - ${importFile.name.replace(/\.[^/.]+$/, '')}`,
-        type: 'master',
-        content: extractedContent,
-        atsScore: Math.floor(Math.random() * 30) + 60,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      };
-      
-      setResumes([...resumes, newResume]);
-      setActiveResumeId(newResume.id);
-      setActiveResume(newResume);
-      setEditorContent(newResume.content);
-      setUndoHistory([newResume.content]);
-      setHistoryPointer(0);
-      
-      setImportStatus('success');
-      
-      setTimeout(() => {
-        setShowImportModal(false);
-        setImportFile(null);
-        setImportStatus('idle');
-        setImportError('');
-        setViewMode('edit');
-      }, 1500);
-      
-    } catch (error) {
-      setImportStatus('error');
-      setImportError('Failed to process the file. Please try again.');
-    }
-  };
 
   const handleAddSection = (sectionName: string) => {
     if (!activeSections.includes(sectionName)) {
