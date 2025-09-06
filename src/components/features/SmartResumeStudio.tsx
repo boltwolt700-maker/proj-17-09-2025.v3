@@ -520,7 +520,7 @@ EDUCATION
             theme === 'light' 
               ? 'bg-white border-gray-200 hover:border-blue-300 hover:shadow-lg' 
               : 'bg-[#111827] border-gray-700/50 hover:border-blue-400/50'
-          }`} onClick={handleChooseCV}>
+          }`} onClick={handleImportResume}>
             <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <Upload className="w-10 h-10 text-white" />
             </div>
@@ -552,7 +552,7 @@ EDUCATION
             </div>
 
             <button className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2 mx-auto">
-              Get Started
+              Select Files
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -666,6 +666,132 @@ EDUCATION
             </div>
           </div>
         </div>
+
+        {/* Import Modal */}
+        {showImportModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className={`w-full max-w-2xl rounded-2xl border ${
+              theme === 'light' 
+                ? 'bg-white border-gray-200' 
+                : 'bg-slate-800 border-slate-700'
+            }`}>
+              {/* Modal Header */}
+              <div className={`flex items-center justify-between p-6 border-b ${
+                theme === 'light' ? 'border-gray-200' : 'border-slate-700'
+              }`}>
+                <h3 className={`text-xl font-semibold ${
+                  theme === 'light' ? 'text-gray-900' : 'text-white'
+                }`}>
+                  Import Resume
+                </h3>
+                <button
+                  onClick={() => setShowImportModal(false)}
+                  className={`p-2 rounded-lg transition-colors ${
+                    theme === 'light' 
+                      ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
+                      : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                  }`}
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6">
+                {importStatus === 'idle' && (
+                  <div>
+                    <div className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors ${
+                      theme === 'light' 
+                        ? 'border-gray-300 hover:border-gray-400' 
+                        : 'border-slate-600 hover:border-slate-500'
+                    }`}>
+                      <input
+                        type="file"
+                        accept=".pdf,.docx,.doc,.txt"
+                        onChange={handleFileSelect}
+                        className="hidden"
+                        id="resume-file-input"
+                      />
+                      
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                          <Upload className="w-8 h-8 text-white" />
+                        </div>
+                        
+                        <div>
+                          <h4 className={`text-lg font-medium mb-2 ${
+                            theme === 'light' ? 'text-gray-900' : 'text-white'
+                          }`}>
+                            Choose your resume file
+                          </h4>
+                          <p className={`text-sm ${
+                            theme === 'light' ? 'text-gray-600' : 'text-slate-400'
+                          }`}>
+                            PDF, DOCX, DOC, or TXT (Max 10MB)
+                          </p>
+                        </div>
+                        
+                        <label
+                          htmlFor="resume-file-input"
+                          className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 cursor-pointer"
+                        >
+                          Select Files
+                        </label>
+                      </div>
+                    </div>
+
+                    {importError && (
+                      <div className="mt-4 bg-red-50 border border-red-200 rounded-lg p-3">
+                        <div className="flex items-center gap-2">
+                          <AlertCircle className="w-4 h-4 text-red-500" />
+                          <p className="text-red-600 text-sm">{importError}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {importStatus === 'processing' && (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <RefreshCw className="w-8 h-8 text-white animate-spin" />
+                    </div>
+                    <h4 className={`text-lg font-medium mb-2 ${
+                      theme === 'light' ? 'text-gray-900' : 'text-white'
+                    }`}>
+                      Processing your resume...
+                    </h4>
+                    <p className={theme === 'light' ? 'text-gray-600' : 'text-slate-400'}>
+                      Extracting content and analyzing structure
+                    </p>
+                  </div>
+                )}
+
+                {importStatus === 'error' && (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <AlertCircle className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className={`text-lg font-medium mb-2 ${
+                      theme === 'light' ? 'text-gray-900' : 'text-white'
+                    }`}>
+                      Import Failed
+                    </h4>
+                    <p className={`mb-4 ${theme === 'light' ? 'text-gray-600' : 'text-slate-400'}`}>
+                      {importError || 'Unable to process the selected file'}
+                    </p>
+                    <button
+                      onClick={() => setImportStatus('idle')}
+                      className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors"
+                    >
+                      Try Again
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
