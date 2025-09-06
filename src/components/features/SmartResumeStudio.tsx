@@ -245,6 +245,7 @@ EDUCATION
       setResumes([newResume]);
       setActiveResumeId(newResume.id);
       setActiveResume(newResume);
+      setActiveResume(newResume);
       setEditorContent(newResume.content);
       setUndoHistory([newResume.content]);
       setHistoryPointer(0);
