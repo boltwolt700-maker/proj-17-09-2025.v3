@@ -259,6 +259,11 @@ EDUCATION
   const handleResumeSelect = (resumeId: string) => {
     const resume = resumes.find(r => r.id === resumeId);
     if (resume) {
+      
+      // Auto-proceed to preview after successful extraction
+      setTimeout(() => {
+        handleImportResume();
+      }, 1000);
       setActiveResumeId(resumeId);
       setActiveResume(resume);
       setEditorContent(resume.content);
@@ -327,6 +332,8 @@ EDUCATION
   };
 
   const handleImportResume = () => {
+    if (!extractedContent) return;
+    
     setShowImportModal(true);
     setImportFile(null);
     setImportStatus('idle');
