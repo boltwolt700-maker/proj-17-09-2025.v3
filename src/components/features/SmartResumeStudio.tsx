@@ -335,9 +335,9 @@ EDUCATION
   const handleImportResume = async () => {
     if (!importFile) return;
     
-    const extractedContent = await processImportedFile(importFile);
+    const content = await processImportedFile(selectedFile);
     
-    if (!extractedContent || !extractedContent.trim()) {
+    if (!content) {
       alert('Could not extract content from the file. Please try a different file.');
       return;
     }
@@ -346,7 +346,7 @@ EDUCATION
     setImportFile(null);
     setImportStatus('idle');
     setImportError('');
-  };
+      content: content,
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
