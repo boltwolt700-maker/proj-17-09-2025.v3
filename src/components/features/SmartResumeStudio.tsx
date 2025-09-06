@@ -565,7 +565,9 @@ EDUCATION
               </div>
             </div>
 
-            <button className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2 mx-auto">
+            <button 
+              onClick={() => setShowImportModal(true)}
+              className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2 mx-auto">
               Select Files
               <ArrowRight className="w-5 h-5" />
             </button>
