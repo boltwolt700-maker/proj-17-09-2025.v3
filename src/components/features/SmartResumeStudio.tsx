@@ -586,10 +586,10 @@ CERTIFICATIONS
             <FileText className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className={\`text-3xl font-bold ${
+            <h1 className={`text-3xl font-bold ${
               theme === 'light' ? 'text-gray-900' : 'text-gray-50'
             }`}>Smart Resume Studio</h1>
-            <p className={\`mt-1 ${
+            <p className={`mt-1 ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-400'
             }`}>AI-powered resume creation and optimization</p>
           </div>
