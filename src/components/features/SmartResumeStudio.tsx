@@ -196,7 +196,7 @@ Task Management App | Open Source Contribution
   const createNewResume = () => {
     const newResume: Resume = {
       id: Date.now().toString(),
-      title: \`New Resume ${resumes.length + 1}`,
+      title: `New Resume ${resumes.length + 1}`,
       type: 'campaign',
       content: resumes.find(r => r.type === 'master')?.content || 'Start writing your resume...',
       atsScore: 0,
