@@ -331,9 +331,16 @@ EDUCATION
     setViewMode('edit');
   };
 
-  const handleImportResume = () => {
-    if (!extractedContent) return;
+  const handleImportResume = async () => {
+    if (!importFile) return;
     
+    const extractedContent = await processImportedFile(importFile);
+    
+    if (!extractedContent || !extractedContent.trim()) {
+      alert('Could not extract content from the file. Please try a different file.');
+      return;
+    }
+
     setShowImportModal(true);
     setImportFile(null);
     setImportStatus('idle');
