@@ -12,7 +12,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-slate-50 min-h-screen">
       <Header />
       <Hero />
       <Problem />

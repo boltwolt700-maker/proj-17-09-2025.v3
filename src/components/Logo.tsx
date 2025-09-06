@@ -21,15 +21,15 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showText = tru
 
   return (
     <div className={`flex items-center space-x-2 ${className}`}>
-      <div className={`${sizeClasses[size]} bg-gradient-to-br from-primary via-accent to-chart-2 rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden`}>
+      <div className={`${sizeClasses[size]} bg-gradient-to-br from-indigo-500 via-purple-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden`}>
         {/* Background pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-foreground/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
         
         {/* Main icon - Career ladder/growth symbol */}
         <svg 
           viewBox="0 0 24 24" 
           fill="none" 
-          className="w-3/5 h-3/5 text-primary-foreground relative z-10"
+          className="w-3/5 h-3/5 text-white relative z-10"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Career ladder steps */}
@@ -50,7 +50,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showText = tru
         </svg>
       </div>
       {showText && (
-        <span className={`${textSizeClasses[size]} font-bold text-foreground`}>
+        <span className={`${textSizeClasses[size]} font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent`}>
           Career Clarified
         </span>
       )}
