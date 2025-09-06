@@ -597,11 +597,11 @@ CERTIFICATIONS
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Choose CV Option */}
-          <div className={\`rounded-2xl p-8 border text-center hover:transform hover:scale-105 transition-all duration-300 cursor-pointer ${
+          <div className={`rounded-2xl p-8 border text-center hover:transform hover:scale-105 transition-all duration-300 cursor-pointer ${
             theme === 'light' 
               ? 'bg-white border-gray-200 hover:border-blue-300 hover:shadow-lg' 
               : 'bg-[#111827] border-gray-700/50 hover:border-blue-400/50'
-          }`} onClick={handleChooseCV}>
+          }`}
             <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <Upload className="w-10 h-10 text-white" />
             </div>
