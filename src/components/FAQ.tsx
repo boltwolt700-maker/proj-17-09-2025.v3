@@ -4,7 +4,7 @@ import { useInView } from '../hooks/useInView';
 
 const FAQ = () => {
   const [ref, isInView] = useInView();
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
     {
