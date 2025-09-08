@@ -208,6 +208,120 @@ input:focus-visible {
   background-color: rgb(107 114 128);
 }
 
+/* Scrollable Cards Styles */
+.scroll-cards::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scroll-cards::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #888;
+}
+
+.cards-container {
+  display: flex;
+  overflow-x: scroll;
+  padding: 24px;
+  scroll-snap-type: x mandatory;
+  scroll-padding-top: 24px;
+  border-radius: 8px;
+  gap: 20px;
+}
+
+.cards-container .feature-card {
+  flex: 0 0 280px;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #141414;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.feature-card .card__image {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.feature-card:nth-child(1) .card__image {
+  background-image: linear-gradient(
+      to right top,
+      #051937, 
+      #004d7a, 
+      #008793, 
+      #00bf72, 
+      #a8eb12
+  );
+}
+
+.feature-card:nth-child(2) .card__image {
+  background-image: linear-gradient(
+    to right top, 
+    #dc09a5, 
+    #ce00b4, 
+    #ba00c5, 
+    #9c00d8, 
+    #6f12eb
+  );
+}
+
+.feature-card:nth-child(3) .card__image {
+  background-image: linear-gradient(
+    to right top, 
+    #dc1009, 
+    #e55f00, 
+    #e49200, 
+    #dac000, 
+    #c7eb12
+  );
+}
+
+.feature-card:nth-child(4) .card__image {
+  background-image: linear-gradient(
+    to right top, 
+    #051937, 
+    #004d7a, 
+    #008793, 
+    #00bf72, 
+    #a8eb12
+  );
+}
+
+.feature-card .card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: #141414;
+}
+
+.feature-card .card__content .card__title {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.feature-card .card__content .card__describe {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.feature-card .card__icon {
+  color: #fff;
+  width: 32px;
+  height: 32px;
+}
+
 /* Ensure content stays above the shine effect */
 .card-metallic > * {
   position: relative;

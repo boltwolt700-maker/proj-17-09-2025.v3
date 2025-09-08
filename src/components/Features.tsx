@@ -152,9 +152,19 @@ const Features = () => {
             <p className="text-slate-600">Generate authentic content that builds real authority while you focus on your actual work</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="cards-container scroll-cards">
             {contentCreationFeatures.map((feature, index) => (
-              <FeatureCard key={index} feature={feature} index={index} delay={`${index * 0.1}s`} />
+              <div key={index} className="feature-card">
+                <div className="card__image">
+                  <div className="card__icon">
+                    {feature.icon}
+                  </div>
+                </div>
+                <div className="card__content">
+                  <span className="card__title">{feature.title}</span>
+                  <p className="card__describe">{feature.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -170,9 +180,19 @@ const Features = () => {
             <p className="text-slate-600">AI analyzes your resume against 1,000+ ATS patterns, then rewrites it to pass the robots AND impress humans</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="cards-container scroll-cards">
             {careerHubFeatures.map((feature, index) => (
-              <FeatureCard key={index} feature={feature} index={index} delay={`${index * 0.1}s`} />
+              <div key={index} className="feature-card">
+                <div className="card__image">
+                  <div className="card__icon">
+                    {feature.icon}
+                  </div>
+                </div>
+                <div className="card__content">
+                  <span className="card__title">{feature.title}</span>
+                  <p className="card__describe">{feature.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -188,9 +208,19 @@ const Features = () => {
             <p className="text-slate-600">AI-guided skill development that keeps you competitive and future-ready</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="cards-container scroll-cards">
             {upskillingFeatures.map((feature, index) => (
-              <FeatureCard key={index} feature={feature} index={index} delay={`${index * 0.1}s`} />
+              <div key={index} className="feature-card">
+                <div className="card__image">
+                  <div className="card__icon">
+                    {feature.icon}
+                  </div>
+                </div>
+                <div className="card__content">
+                  <span className="card__title">{feature.title}</span>
+                  <p className="card__describe">{feature.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
