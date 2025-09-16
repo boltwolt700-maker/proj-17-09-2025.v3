@@ -169,19 +169,31 @@ const CarouselMaker = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="p-8 max-w-7xl mx-auto bg-[var(--color-bg)] min-h-screen">
+      {/* Header */}
+      <div className="flex items-center gap-4 mb-8">
+        <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center shadow-lg">
+          <Image className="w-7 h-7 text-white" />
+        </div>
+        <div>
+          <h1 className="text-4xl font-bold text-[var(--color-text)]">Professional Carousel Maker</h1>
+          <p className="text-lg text-[var(--color-text-secondary)] mt-2">Create stunning multi-slide carousels with professional templates and AI content generation</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Content Creation */}
         <div className="lg:col-span-2 space-y-6">
           {/* Generation Controls */}
-          <div className="bg-[#111827] rounded-2xl p-6 border border-gray-700/50">
-            <h3 className="text-lg font-semibold text-gray-50 mb-4 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-indigo-400" />
+          <div className="glass-card-strong rounded-3xl p-8 hover:transform hover:scale-105 transition-all duration-300">
+            <h3 className="text-2xl font-bold text-[var(--color-text)] mb-6 flex items-center gap-3">
+              <Sparkles className="w-6 h-6 text-[var(--color-primary)]" />
               AI Carousel Generation
             </h3>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-semibold text-[var(--color-text)] mb-3">
                   Topic
                 </label>
                 <input
@@ -189,19 +201,19 @@ const CarouselMaker = () => {
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
                   placeholder="e.g., 5 Tips for Better Remote Work"
-                  className="w-full px-3 py-2 bg-[#1F2937] border border-gray-600 rounded-lg text-gray-50 placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none"
+                  className="w-full px-4 py-3 surface-card border border-[var(--color-border)] rounded-2xl text-[var(--color-text)] placeholder-[var(--color-text-secondary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:outline-none transition-all duration-300"
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-semibold text-[var(--color-text)] mb-3">
                     Target Audience
                   </label>
                   <select
                     value={targetAudience}
                     onChange={(e) => setTargetAudience(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#1F2937] border border-gray-600 rounded-lg text-gray-50 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none"
+                    className="w-full px-4 py-3 surface-card border border-[var(--color-border)] rounded-2xl text-[var(--color-text)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:outline-none transition-all duration-300"
                   >
                     {audiences.map((audience) => (
                       <option key={audience} value={audience.toLowerCase()}>{audience}</option>
@@ -210,13 +222,13 @@ const CarouselMaker = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-semibold text-[var(--color-text)] mb-3">
                     Number of Slides
                   </label>
                   <select
                     value={slideCount}
                     onChange={(e) => setSlideCount(Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-[#1F2937] border border-gray-600 rounded-lg text-gray-50 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none"
+                    className="w-full px-4 py-3 surface-card border border-[var(--color-border)] rounded-2xl text-[var(--color-text)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:outline-none transition-all duration-300"
                   >
                     {[5, 6, 7, 8, 9, 10].map((count) => (
                       <option key={count} value={count}>{count} slides</option>
@@ -228,7 +240,7 @@ const CarouselMaker = () => {
               <button
                 onClick={generateCarousel}
                 disabled={!topic.trim() || isGenerating}
-                className="w-full bg-gradient-to-r from-indigo-500 to-violet-600 text-white px-4 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full btn-primary px-6 py-4 rounded-2xl font-semibold transition-all duration-300 hover:transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
               >
                 {isGenerating ? (
                   <>

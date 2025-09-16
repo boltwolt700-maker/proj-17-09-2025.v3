@@ -236,56 +236,56 @@ What's your experience with AI development tools? Are you seeing similar product
   };
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto">
+    <div className="p-8 max-w-7xl mx-auto bg-[var(--color-bg)] min-h-screen">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center">
-          <Brain className="w-6 h-6 text-white" />
+      <div className="flex items-center gap-4 mb-8">
+        <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-3xl flex items-center justify-center shadow-lg">
+          <Brain className="w-7 h-7 text-white" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-gray-50">Content Engine for Thought Leadership</h1>
-          <p className="text-gray-400 mt-1">AI-powered thought leadership content generation</p>
+          <h1 className="text-4xl font-bold text-[var(--color-text)]">Content Engine for Thought Leadership</h1>
+          <p className="text-lg text-[var(--color-text-secondary)] mt-2">AI-powered thought leadership content generation</p>
         </div>
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex bg-[#111827] rounded-lg p-1 border border-gray-700 mb-8 overflow-x-auto">
+      <div className="flex surface-card rounded-2xl p-2 border border-[var(--color-border)] mb-8 overflow-x-auto shadow-lg">
         <button
           onClick={() => setActiveTab('dashboard')}
-          className={`px-4 py-3 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'dashboard' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'
+          className={`px-6 py-3 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap ${
+            activeTab === 'dashboard' ? 'bg-[var(--color-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
           }`}
         >
           Dashboard
         </button>
         <button
           onClick={() => setActiveTab('generator')}
-          className={`px-4 py-3 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'generator' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'
+          className={`px-6 py-3 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap ${
+            activeTab === 'generator' ? 'bg-[var(--color-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
           }`}
         >
           Content Generator
         </button>
         <button
           onClick={() => setActiveTab('calendar')}
-          className={`px-4 py-3 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'calendar' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'
+          className={`px-6 py-3 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap ${
+            activeTab === 'calendar' ? 'bg-[var(--color-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
           }`}
         >
           Calendar & Post Queue
         </button>
         <button
           onClick={() => setActiveTab('analytics')}
-          className={`px-4 py-3 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'analytics' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'
+          className={`px-6 py-3 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap ${
+            activeTab === 'analytics' ? 'bg-[var(--color-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
           }`}
         >
           Analytics
         </button>
         <button
           onClick={() => setActiveTab('expertise')}
-          className={`px-4 py-3 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-            activeTab === 'expertise' ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:text-white'
+          className={`px-6 py-3 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap ${
+            activeTab === 'expertise' ? 'bg-[var(--color-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
           }`}
         >
           Expertise
