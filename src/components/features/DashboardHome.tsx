@@ -26,28 +26,28 @@ const DashboardHome = () => {
       description: 'Create an AI-powered LinkedIn post',
       icon: PenTool,
       path: '/dashboard/post-generator',
-      color: 'from-indigo-500 to-purple-600'
+      gradient: 'from-indigo-500 to-purple-600'
     },
     {
       title: 'Create Carousel',
       description: 'Design a professional carousel',
       icon: Image,
       path: '/dashboard/carousel-maker',
-      color: 'from-purple-500 to-pink-600'
+      gradient: 'from-purple-500 to-pink-600'
     },
     {
       title: 'Enhance Resume',
       description: 'Optimize your resume for ATS',
       icon: FileText,
       path: '/dashboard/resume-enhancer',
-      color: 'from-blue-500 to-indigo-600'
+      gradient: 'from-blue-500 to-indigo-600'
     },
     {
       title: 'Schedule Content',
       description: 'Plan your content calendar',
       icon: Calendar,
       path: '/dashboard/calendar',
-      color: 'from-green-500 to-teal-600'
+      gradient: 'from-green-500 to-teal-600'
     }
   ];
 
@@ -57,14 +57,14 @@ const DashboardHome = () => {
       value: '24',
       change: '+12%',
       icon: PenTool,
-      color: 'text-indigo-600'
+      color: 'text-[var(--color-primary)]'
     },
     {
       title: 'Profile Views',
       value: '1,247',
       change: '+23%',
       icon: Users,
-      color: 'text-green-600'
+      color: 'text-emerald-600'
     },
     {
       title: 'Engagement Rate',
@@ -106,51 +106,41 @@ const DashboardHome = () => {
   ];
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-8 max-w-7xl mx-auto bg-white min-h-screen">
       {/* Welcome Section */}
-      <div className="mb-8">
-        <h1 className={`text-3xl font-bold mb-2 ${
-          theme === 'light' ? 'text-gray-900' : 'text-white'
-        }`}>
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold mb-3 text-[var(--color-text)]">
           Welcome back to Career Clarified
         </h1>
-        <p className={theme === 'light' ? 'text-gray-600' : 'text-slate-300'}>
+        <p className="text-lg text-[var(--color-text-secondary)]">
           Ready to accelerate your career growth? Let's create something amazing today.
         </p>
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
         {quickActions.map((action, index) => {
           const Icon = action.icon;
           return (
             <button
               key={index}
               onClick={() => navigate(action.path)}
-              className={`group card-metallic rounded-2xl overflow-hidden border transition-all duration-300 text-left ${
-                theme === 'light'
-                  ? 'bg-white border-gray-200 hover:border-violet-400/50'
-                  : 'bg-slate-800 border-slate-700 hover:border-violet-400/50'
-              }`}
+              className="group glass-card rounded-3xl overflow-hidden transition-all duration-300 text-left hover:transform hover:scale-105"
             >
               {/* Top colored section */}
-              <div className={`bg-gradient-to-r ${action.color} p-6 relative`}>
+              <div className={`bg-gradient-to-r ${action.gradient} p-8 relative`}>
                 <div className="flex items-center justify-between mb-4">
-                  <Icon className="w-6 h-6 text-white" />
-                  <div className="text-white/80 text-xs font-medium">ACTION</div>
+                  <Icon className="w-8 h-8 text-white" />
+                  <div className="text-white/80 text-xs font-bold uppercase tracking-wider">ACTION</div>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-white/90 transition-colors">
                   {action.title}
                 </h3>
               </div>
               
               {/* Bottom white section */}
-              <div className={`p-6 ${
-                theme === 'light' ? 'bg-white' : 'bg-slate-800'
-              }`}>
-                <p className={`text-sm ${
-                  theme === 'light' ? 'text-slate-600' : 'text-slate-300'
-                }`}>
+              <div className="p-8 bg-white/95 backdrop-blur-sm">
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                   {action.description}
                 </p>
               </div>
@@ -160,32 +150,24 @@ const DashboardHome = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
             <div
               key={index}
-              className={`card-metallic backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 ${
-                theme === 'light'
-                  ? 'bg-white/90 border-gray-200 hover:border-violet-400/30'
-                  : 'bg-slate-800/50 border-slate-700/50 hover:border-violet-400/30 hover:bg-slate-800/80'
-              }`}
+              className="surface-card rounded-3xl p-8 transition-all duration-300 hover:transform hover:scale-105"
             >
               <div className="flex items-center justify-between mb-4">
-                <Icon className={`w-6 h-6 ${stat.color}`} />
-                <span className="text-emerald-400 text-sm font-medium bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-400/30">
+                <Icon className={`w-8 h-8 ${stat.color}`} />
+                <span className="text-emerald-600 text-sm font-bold bg-emerald-100 px-4 py-2 rounded-full">
                   {stat.change}
                 </span>
               </div>
-              <h3 className={`text-2xl font-bold mb-1 ${
-                theme === 'light' ? 'text-gray-900' : 'text-white'
-              }`}>
+              <h3 className="text-3xl font-bold mb-2 text-[var(--color-text)]">
                 {stat.value}
               </h3>
-              <p className={`text-sm ${
-                theme === 'light' ? 'text-gray-600' : 'text-slate-300'
-              }`}>
+              <p className="text-base font-medium text-[var(--color-text-secondary)]">
                 {stat.title}
               </p>
             </div>
@@ -193,40 +175,26 @@ const DashboardHome = () => {
         })}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Recent Activity */}
         <div className="lg:col-span-2">
-          <div className={`card-metallic backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 ${
-            theme === 'light'
-              ? 'bg-white/90 border-gray-200 hover:border-violet-400/30'
-              : 'bg-slate-800/50 border-slate-700/50 hover:border-violet-400/30'
-          }`}>
-            <h2 className={`text-xl font-bold mb-6 ${
-              theme === 'light' ? 'text-gray-900' : 'text-white'
-            }`}>
+          <div className="glass-card rounded-3xl p-8 transition-all duration-300">
+            <h2 className="text-2xl font-bold mb-8 text-[var(--color-text)]">
               Recent Activity
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {recentActivity.map((activity, index) => (
-                <div key={index} className={`flex items-center gap-4 p-3 rounded-xl transition-colors ${
-                  theme === 'light' 
-                    ? 'hover:bg-gray-100' 
-                    : 'hover:bg-slate-700/50'
-                }`}>
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full shadow-sm shadow-emerald-400/50"></div>
+                <div key={index} className="flex items-center gap-4 p-4 rounded-2xl surface-card-alt transition-all duration-300 hover:transform hover:scale-102">
+                  <div className="w-3 h-3 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
                   <div className="flex-1">
-                    <p className={`font-medium ${
-                      theme === 'light' ? 'text-gray-900' : 'text-white'
-                    }`}>
+                    <p className="font-semibold text-[var(--color-text)]">
                       {activity.action}
                     </p>
-                    <p className={`text-sm ${
-                      theme === 'light' ? 'text-gray-500' : 'text-slate-400'
-                    }`}>
+                    <p className="text-sm text-[var(--color-text-secondary)] mt-1">
                       {activity.time}
                     </p>
                   </div>
-                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <CheckCircle className="w-6 h-6 text-emerald-500" />
                 </div>
               ))}
             </div>
@@ -234,62 +202,32 @@ const DashboardHome = () => {
         </div>
 
         {/* Quick Tips */}
-        <div className={`card-metallic backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 ${
-          theme === 'light'
-            ? 'bg-white/90 border-gray-200 hover:border-violet-400/30'
-            : 'bg-slate-800/50 border-slate-700/50 hover:border-violet-400/30'
-        }`}>
-          <h2 className={`text-xl font-bold mb-6 ${
-            theme === 'light' ? 'text-gray-900' : 'text-white'
-          }`}>
+        <div className="glass-card rounded-3xl p-8 transition-all duration-300">
+          <h2 className="text-2xl font-bold mb-8 text-[var(--color-text)]">
             Career Tips
           </h2>
-          <div className="space-y-4">
-            <div className={`p-4 rounded-xl border transition-all duration-300 ${
-              theme === 'light'
-                ? 'bg-gradient-to-r from-violet-50 to-purple-50 border-violet-200 hover:border-violet-300'
-                : 'bg-gradient-to-r from-violet-500/20 to-purple-500/20 border-violet-400/30 hover:border-violet-400/50'
-            }`}>
-              <h3 className={`font-semibold mb-2 ${
-                theme === 'light' ? 'text-violet-700' : 'text-violet-300'
-              }`}>
+          <div className="space-y-6">
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-violet-50 to-purple-50 border border-violet-200 hover:border-violet-300 transition-all duration-300 hover:transform hover:scale-105">
+              <h3 className="font-bold mb-3 text-violet-700 text-lg">
                 Post Consistently
               </h3>
-              <p className={`text-sm ${
-                theme === 'light' ? 'text-violet-600' : 'text-violet-200'
-              }`}>
+              <p className="text-sm text-violet-600 leading-relaxed">
                 Share valuable content 3-5 times per week to build authority.
               </p>
             </div>
-            <div className={`p-4 rounded-xl border transition-all duration-300 ${
-              theme === 'light'
-                ? 'bg-gradient-to-r from-fuchsia-50 to-pink-50 border-fuchsia-200 hover:border-fuchsia-300'
-                : 'bg-gradient-to-r from-fuchsia-500/20 to-pink-500/20 border-fuchsia-400/30 hover:border-fuchsia-400/50'
-            }`}>
-              <h3 className={`font-semibold mb-2 ${
-                theme === 'light' ? 'text-fuchsia-700' : 'text-fuchsia-300'
-              }`}>
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-fuchsia-50 to-pink-50 border border-fuchsia-200 hover:border-fuchsia-300 transition-all duration-300 hover:transform hover:scale-105">
+              <h3 className="font-bold mb-3 text-fuchsia-700 text-lg">
                 Optimize Keywords
               </h3>
-              <p className={`text-sm ${
-                theme === 'light' ? 'text-fuchsia-600' : 'text-fuchsia-200'
-              }`}>
+              <p className="text-sm text-fuchsia-600 leading-relaxed">
                 Use industry keywords in your profile and posts for better visibility.
               </p>
             </div>
-            <div className={`p-4 rounded-xl border transition-all duration-300 ${
-              theme === 'light'
-                ? 'bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 hover:border-emerald-300'
-                : 'bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-emerald-400/30 hover:border-emerald-400/50'
-            }`}>
-              <h3 className={`font-semibold mb-2 ${
-                theme === 'light' ? 'text-emerald-700' : 'text-emerald-300'
-              }`}>
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 hover:border-emerald-300 transition-all duration-300 hover:transform hover:scale-105">
+              <h3 className="font-bold mb-3 text-emerald-700 text-lg">
                 Engage Authentically
               </h3>
-              <p className={`text-sm ${
-                theme === 'light' ? 'text-emerald-600' : 'text-emerald-200'
-              }`}>
+              <p className="text-sm text-emerald-600 leading-relaxed">
                 Comment meaningfully on others' posts to build relationships.
               </p>
             </div>

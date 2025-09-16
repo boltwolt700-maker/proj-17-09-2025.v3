@@ -223,43 +223,29 @@ const Dashboard = () => {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className={`h-screen flex overflow-hidden ${
-      theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
-    }`}>
+    <div className="h-screen flex overflow-hidden bg-white">
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 shadow-xl transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex lg:flex-col ${
-        theme === 'light' 
-          ? 'bg-white border-r border-gray-200' 
-          : 'bg-slate-900 border-r border-slate-800'
-      }`}>
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:flex lg:flex-col glass-card-strong`}>
         <div className="flex flex-col h-full overflow-hidden">
           {/* Logo */}
-          <div className={`flex items-center justify-between p-6 border-b ${
-            theme === 'light' ? 'border-gray-200' : 'border-slate-800'
-          }`}>
+          <div className="flex items-center justify-between p-6 border-b border-[var(--color-border)]">
             <Logo />
             <button
               onClick={() => setSidebarOpen(false)}
-              className={`lg:hidden transition-colors ${
-                theme === 'light' 
-                  ? 'text-gray-400 hover:text-gray-600' 
-                  : 'text-slate-400 hover:text-slate-300'
-              }`}
+              className="lg:hidden text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin">
+          <nav className="flex-1 overflow-y-auto p-6 space-y-8 scrollbar-thin">
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className={`text-xs font-semibold uppercase tracking-wider mb-3 ${
-                  theme === 'light' ? 'text-gray-500' : 'text-slate-400'
-                }`}>
+                <h3 className="text-xs font-bold uppercase tracking-wider mb-4 text-[var(--color-text-secondary)] px-3">
                   {section.category}
                 </h3>
-                <div className="space-y-1">
+                <div className="space-y-2">
                   {section.items.map((item, itemIdx) => {
                     const Icon = item.icon;
                     const isActive = isActivePath(item.path);
@@ -271,33 +257,30 @@ const Dashboard = () => {
                           navigate(item.path);
                           closeSidebar();
                         }}
-                        className={`w-full flex items-start space-x-3 px-3 py-3 rounded-xl text-left transition-all duration-200 group ${
+                        className={`w-full flex items-start space-x-3 px-4 py-4 rounded-2xl text-left transition-all duration-300 group ${
                           isActive
-                            ? theme === 'light'
-                              ? 'bg-blue-100 text-blue-700'
-                              : 'bg-slate-700 text-white'
-                            : theme === 'light'
-                              ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                              : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                            ? 'nav-item active'
+                            : 'nav-item'
                         }`}
                       >
-                        <Icon className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                        <Icon className={`w-6 h-6 mt-0.5 flex-shrink-0 transition-colors ${
                           isActive
-                            ? theme === 'light' ? 'text-blue-700' : 'text-white'
-                            : theme === 'light' 
-                              ? 'text-gray-400 group-hover:text-gray-600' 
-                              : 'text-slate-400 group-hover:text-slate-300'
+                            ? 'text-[var(--color-primary)]'
+                            : 'text-[var(--color-text-secondary)] group-hover:text-[var(--color-primary)]'
                         }`} />
                         <div>
-                          <div className={`font-medium ${
+                          <div className={`font-semibold text-sm ${
                             isActive
-                              ? theme === 'light' ? 'text-blue-700' : 'text-white'
-                              : theme === 'light' 
-                                ? 'text-gray-600 group-hover:text-gray-900' 
-                                : 'text-slate-300 group-hover:text-white'
+                              ? 'text-[var(--color-primary)]'
+                              : 'text-[var(--color-text)] group-hover:text-[var(--color-primary)]'
                           }`}>
                             {item.name}
                           </div>
+                          {item.description && (
+                            <div className="text-xs text-[var(--color-text-secondary)] mt-1 leading-relaxed">
+                              {item.description}
+                            </div>
+                          )}
                         </div>
                       </button>
                     );
@@ -308,19 +291,13 @@ const Dashboard = () => {
           </nav>
 
           {/* Sign Out */}
-          <div className={`p-4 border-t ${
-            theme === 'light' ? 'border-gray-200' : 'border-slate-800'
-          }`}>
+          <div className="p-6 border-t border-[var(--color-border)]">
             <button
               onClick={handleSignOut}
-              className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-colors ${
-                theme === 'light'
-                  ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
+              className="w-full flex items-center gap-3 px-4 py-4 rounded-2xl nav-item"
             >
-              <LogOut className="w-5 h-5" />
-              <span>Sign Out</span>
+              <LogOut className="w-6 h-6" />
+              <span className="font-semibold">Sign Out</span>
             </button>
           </div>
         </div>
@@ -329,19 +306,11 @@ const Dashboard = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Mobile Header */}
-        <header className={`lg:hidden border-b px-4 py-3 ${
-          theme === 'light' 
-            ? 'bg-white border-gray-200' 
-            : 'bg-slate-900 border-slate-800'
-        }`}>
+        <header className="lg:hidden glass-card border-b border-[var(--color-border)] px-6 py-4">
           <div className="flex items-center justify-between">
             <button
               onClick={() => setSidebarOpen(true)}
-              className={`transition-colors ${
-                theme === 'light' 
-                  ? 'text-gray-400 hover:text-gray-600' 
-                  : 'text-slate-400 hover:text-slate-300'
-              }`}
+              className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors p-2 rounded-xl"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -349,21 +318,13 @@ const Dashboard = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors ${
-                  theme === 'light' 
-                    ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                    : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-                }`}
+                className="p-3 rounded-xl btn-glass transition-colors"
               >
                 {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
               </button>
               <button
                 onClick={() => setShowSettings(true)}
-                className={`p-2 rounded-lg transition-colors ${
-                  theme === 'light' 
-                    ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                    : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-                }`}
+                className="p-3 rounded-xl btn-glass transition-colors"
               >
                 <Settings className="w-5 h-5" />
               </button>
@@ -372,29 +333,17 @@ const Dashboard = () => {
         </header>
 
         {/* Desktop Header */}
-        <header className={`hidden lg:flex items-center justify-end gap-3 p-4 border-b flex-shrink-0 ${
-          theme === 'light' 
-            ? 'bg-white border-gray-200' 
-            : 'bg-slate-900 border-slate-800'
-        }`}>
+        <header className="hidden lg:flex items-center justify-end gap-4 p-6 glass-card border-b border-[var(--color-border)] flex-shrink-0">
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-lg transition-colors ${
-              theme === 'light' 
-                ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-            }`}
+            className="p-3 rounded-xl btn-glass transition-all duration-300"
             title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           >
             {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
           </button>
           <button
             onClick={() => setShowSettings(true)}
-            className={`p-2 rounded-lg transition-colors ${
-              theme === 'light' 
-                ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' 
-                : 'text-slate-400 hover:text-slate-300 hover:bg-slate-800'
-            }`}
+            className="p-3 rounded-xl btn-glass transition-all duration-300"
             title="Settings"
           >
             <Settings className="w-5 h-5" />
@@ -402,9 +351,7 @@ const Dashboard = () => {
         </header>
         
         {/* Page Content - Scrollable */}
-        <main className={`flex-1 overflow-y-auto scrollbar-thin ${
-          theme === 'light' ? 'bg-gray-50' : 'bg-slate-950'
-        }`}>
+        <main className="flex-1 overflow-y-auto scrollbar-thin bg-white">
           <div className="relative min-h-full">
             <Routes>
               <Route path="/" element={<DashboardHome />} />
