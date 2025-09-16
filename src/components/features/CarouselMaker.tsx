@@ -484,6 +484,7 @@ const CarouselMaker = () => {
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
