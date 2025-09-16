@@ -236,7 +236,6 @@ const Analytics = () => {
         </div>
       </div>
     </div>
-    </div>
   );
 };
 
